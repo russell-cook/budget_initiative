@@ -1,0 +1,980 @@
+    <script type="text/javascript">
+		function drawPieChart() {
+			var pieData = google.visualization.arrayToDataTable([
+			  ['Task', 'Percent'],
+			  ['Direct Initiative Funding',     95],
+			  ['New Metrics',      5]
+			]);
+
+			var options = {
+			  title: 'Cost of New Metrics',
+			  legend: {position: 'none'},
+			};
+
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			chart.draw(pieData, options);
+		}
+
+		function drawCostOfInitiativeChart() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'New Funding'],
+			  ['FY14',  1481330],
+			  ['FY15',  1543564]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('costOfInitiativeChart'));
+			ac.draw(data, {
+				title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Funding", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawBenchmarkChartA() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  3.4,    3.8],
+		      ['2009',  3.4,    3.6],
+		      ['2010',  3.5,    4],
+		      ['2011',  3.5,    3.8],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				vAxis: {title: "Days", minValue: 0}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartA'));
+		    chart.draw(data, options);
+		}
+
+		function drawBenchmarkChartB() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  0,	0.23],
+		      ['2009',  null,	0.18],
+		      ['2010',  null,	0.27],
+		      ['2011',  null,	0.19],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+		      	//because of error when all values in a series are null, set the first values in the series (in the data array) to 0 and hide it with pointSize: 0
+		      	series: {0:{pointSize: 0}},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartB'));
+		    chart.draw(data, options);
+		}
+
+      	function drawPMInitiativeChartA() {
+			// Create and populate the data table.
+			var data = new google.visualization.DataTable();
+			data.addColumn('date', 'Date');
+			data.addColumn('number', 'Number Waiting (Actual)');
+			data.addColumn('number', 'Number Waiting (Projected)');
+			data.addRows([
+				[new Date(2012,4,10),	5,		null],
+				[new Date(2012,4,23),	6,		null],
+				[new Date(2012,5,17),	9,		null],
+				[new Date(2012,6,11),	7,		null],
+				[new Date(2012,6,29),	5,		null],
+				[new Date(2012,7,30),	8,		null],
+				[new Date(2012,8,13),	8,		null],
+				[new Date(2012,8,24),	7,		null],
+				[new Date(2012,9,7),	5,		null],
+				[new Date(2012,9,26),	8,		null],
+				[new Date(2012,10,18),	8,		null],
+				[new Date(2012,11,1),	6,		null],
+				[new Date(2012,12,20),	12,		null],
+				[new Date(2013,1,9),	13,		null],
+				[new Date(2013,1,10),	14,		null],
+				[new Date(2013,1,17),	15,		null],
+				[new Date(2013,1,31),	16,		null],
+				[new Date(2013,2,25),	18,		null],
+				[new Date(2013,3,8),	18,		null],
+				[new Date(2013,3,19),	23,		null],
+				[new Date(2013,3,25),	21,		null],
+				[new Date(2013,4,19),	26,		null],
+				[new Date(2013,4,29),	34,		null],
+				[new Date(2013,5,7),	31,		null],
+				[new Date(2013,5,20),	32,		null],
+				[new Date(2013,6,10),	36,		null],
+				[new Date(2013,6,20),	32,		null],
+				[new Date(2013,7,10),	36,		null],
+				[new Date(2013,7,10),	null,	36],
+				[new Date(2013,8,1),	null,	35],
+				[new Date(2013,10,1),	null,	34],
+				[new Date(2013,12,1),	null,	33],
+				[new Date(2014,2,1),	null,	30],
+				[new Date(2014,4,1),	null,	28],
+				[new Date(2014,6,1),	null,	26],
+				[new Date(2014,8,1),	null,	24],
+				[new Date(2014,10,1),	null,	20],
+				[new Date(2014,12,1),	null,	19],
+				[new Date(2015,2,1),	null,	18],
+				[new Date(2015,4,1),	null,	17],
+				[new Date(2015,6,1),	null,	15],
+				[new Date(2015,8,1),	null,	14],
+				[new Date(2015,10,1),	null,	13],
+				[new Date(2015,12,1),	null,	12],
+				[new Date(2016,2,1),	null,	12],
+				[new Date(2016,4,1),	null,	11],
+				[new Date(2016,6,1),	null,	11],
+				[new Date(2016,8,1),	null,	10],
+				[new Date(2016,10,1),	null,	9],
+				[new Date(2016,12,1),	null,	9]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.LineChart(document.getElementById('PMInitiativeChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Number Waiting", minValue: 0},
+				hAxis: {minValue: new Date(2012,1,1), maxValue: new Date(2016,1,1)},
+				pointSize: 3
+				//seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMInitiativeChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Wait Time (Actual)', 'Average Wait Time (Projected)'],
+			  ['FY10',  13,		null],
+			  ['FY11',  11,		null],
+			  ['FY12',  14,		null],
+			  ['FY13',  18,		null],
+			  ['FY14',  null,	17],
+			  ['FY15',  null,	15],
+			  ['FY16',  null,	13],
+			  ['FY17',  null,	12]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMInitiativeChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Length of Stay (Actual)', 'Average Length of Stay (Projected)'],
+			  ['FY08',  127,	null],
+			  ['FY09',  68,		null],
+			  ['FY10',  76,		null],
+			  ['FY11',  102,	null],
+			  ['FY12',  81,		null],
+			  ['FY13',  98,		null],
+			  ['FY14',  null,	100],
+			  ['FY15',  null,	95],
+			  ['FY16',  null,	90],
+			  ['FY17',  null,	88]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartB() {
+		    var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Percent Discharged Competant to Stand Trial (Actual)', 'Percent Discharged Competant to Stand Trial (Projected)'],
+			  ['FY08',  null,	null],
+			  ['FY09',  .84,	null],
+			  ['FY10',  .87,	null],
+			  ['FY11',  .81,	null],
+			  ['FY12',  .74,	null],
+			  ['FY13',  .71,	.71],
+			  ['FY14',  null,	.75],
+			  ['FY15',  null,	.78],
+			  ['FY16',  null,	.82],
+			  ['FY17',  null,	.86]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('PMAgencyChartB'));
+		    chart.draw(data, options);
+		}
+
+		function drawPMAgencyChartC() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY08',  0],
+			  ['FY09',  0],
+			  ['FY10',  0],
+			  ['FY11',  0],
+			  ['FY12',  0],
+			  ['FY13',  0],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartC'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartD() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Cost Per Client Per Day (Actual)', 'Average Cost Per Client Per Day (Projected)'],
+			  ['FY10',  513,	null],
+			  ['FY11',  424,	null],
+			  ['FY12',  420,	null],
+			  ['FY13',  378,	null],
+			  ['FY14',  null,	360],
+			  ['FY15',  null,	350],
+			  ['FY16',  null,	350],
+			  ['FY17',  null,	350]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartD'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Cost", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY07',  58],
+			  ['FY08',  57],
+			  ['FY09',  49],
+			  ['FY10',  48],
+			  ['FY11',  60],
+			  ['FY12',  55],
+			  ['FY13',  60],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Clark Co', 'Washoe Co', 'Rural'],
+			  ['FY09',  .63,      .18,	.20],
+			  ['FY10',  .73,      .19,	.08],
+			  ['FY11',  .65,      .21,	.14],
+			  ['FY12',  .68,      .20,	.12],
+			  ['FY13',  .67,      .23,	.10]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 24},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars",
+				isStacked:true
+			});
+		}
+
+		function drawAllCharts(){
+			drawCostOfInitiativeChart();
+			drawBenchmarkChartA();
+			drawBenchmarkChartB();
+			drawPMInitiativeChartA();
+			drawPMInitiativeChartB();
+			drawPMAgencyChartA();
+			drawPMAgencyChartB();
+			drawPMAgencyChartC();
+			drawPMAgencyChartD();
+			drawCaseloadChartA();
+			drawCaseloadChartB();
+			//drawPieChart();
+		}
+
+    </script>
+	<div class="row">
+		<div class="large-12 columns">
+			<ul class="breadcrumbs">
+			  <li>PPBB</li>
+			  <li><a href="list">Major Budget Initiatives</a></li>
+			  <li class="current"><a href="#">Lake's Crossing</a></li>
+			</ul>
+			<h2>Initiative: Lake's Crossing</h2>
+			<dl class="sub-nav">
+			  <!--<dt><strong>View:</strong></dt>-->
+			  <dd class="active"><a href="#">Overview</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_desc">Description/Justification</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_fund">Funding Details</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_obj">Statewide Objectives/Benchmarks Advanced</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pm">Performance Measures</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pop">Population/Caseload</a></dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-7 columns">
+			<h4>Description (Summary)</h4>
+			<p>During the 77th Legislative Session, both the Governor and Legislature supported providing ten additional forensic mental health beds for the Lake’s Crossing Facility. These additional beds will become available by remodeling a portion of the Dini-Townsend Psychiatric Hospital on the Northern Nevada Adult Mental Health (NNAMHS) campus. This project would increase the number of available forensic beds from 66 to 76. Twenty new staff would be needed to support this expansion. The goal of the expansion is to reduce the length of time that mentally ill individuals wait in jails for transfer to the forensic mental health facility for competency evaluation and restorative treatment.
+			<br><a href="lakes_crossing_desc">Expanded Description >></a></p>
+
+			<h4>Justification (Summary)</h4>
+			<p>Population growth, changes in court procedures, and other factors have led to increases in the number of individuals requiring treatment at Lake’s Crossing, the state’s only forensic mental health facility. At the same time, the length of stay for discharged patients at Lake’s has increased from an average of 68 days in Fiscal Year 2009 to 98 days in Fiscal Year 2013.
+			<br><a href="lakes_crossing_desc#justification">Expanded Justification >></a></p>
+		</div>
+		<div class="large-5 columns">
+			<div class="panel">
+				<!--<center><h4>Cost of Initiative</h4></center>-->
+				<div id="costOfInitiativeChart" style="width: 100%; height: 20em"></div>
+				<br>
+				<h6>This is a new program requiring just over $3.0 million in new funding during the 2014-15 biennium.</h6>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="section-container auto" data-section>
+
+		  <section class="active">
+		    <p class="title" data-section-title><a href="#panel2" onclick="initTimeout()">Funding Summary</a></p>
+		    <div class="content" data-section-content style="min-height: 20em">
+
+	    		<div class="row">
+	    			<div class="large-4 columns">
+						<h5>Lead Agency:</h5>
+	    			</div>
+	    			<div class="large-8 columns" style="text-align: right">
+						<h5><a href="lakes_crossing_fund">Funding Details >></a></h5>
+					</div>
+	    		</div>
+
+		    	<div class="row">
+		    		<div class="large-5 columns">
+						<ul class="no-bullet">
+							<li>
+								<ul>
+									<li><h6><a href="#">DHHS - Division of Public and Behavioral Health</a></h6></li>
+								</ul>
+							</li>
+						</ul>
+						<h5>Secondary Agencies:</h5>
+						<ul class="no-bullet">
+							<li>
+								<ul>
+									<li><h6>None</h6></li>
+								</ul>
+							</li>
+						</ul>
+						<h5>Cost Analysis (Summary)</h5>
+						<p>This initiative requires just over $3.0 million in Tobacco funding during the 2014-15 biennium. The use of General Funds was also considered as an alternative funding approach. </p>
+				    </div>
+
+				    <div class="large-7 columns">
+
+			    		<!--
+			    		Funding Type: <a href="#" data-dropdown="drop1" class="button small dropdown">All Types</a><br>
+
+						<ul id="drop1" class="f-dropdown">
+						  <li><a href="#">General Fund</a></li>
+						  <li><a href="#">Federal Fund</a></li>
+						  <li><a href="#">Highway Fund</a></li>
+						  <li><a href="#">Transfers</a></li>
+						  <li><a href="#">Other</a></li>
+						</ul>
+						-->
+
+						<table>
+						  <thead>
+						    <tr>
+						      <th>Decision Unit</th>
+						      <th>Agency</th>
+						      <th>Budget Account</th>
+						      <th>FY14</th>
+						      <th>FY15</th>
+						      <th>Biennium</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td><a href="#" data-reveal-id="modalDecUnitA">E-225</a></td>
+						      <td>DHHS - DPBH</td>
+						      <td>3645</td>
+						      <td>$1,481,330</td>
+						      <td>$1,543,564</td>
+						      <td>$3,024,894</td>
+						    </tr>
+						    <tr style="background-color:#dddddd">
+						      <td></td>
+						      <td></td>
+						      <td><b>Total:</b></td>
+						      <td>$1,481,330</td>
+						      <td>$1,543,564</td>
+						      <td><b>$3,024,894</b></td>
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+		    </div>
+		  </section>
+
+		  <section>
+		    <p class="title" data-section-title><a href="#panel3" onclick="initTimeout()">Objectives/Benchmarks Advanced</a></p>
+		    <div class="content" data-section-content style="min-height: 20em">
+			    		<div class="row">
+			    			<div class="large-4 columns">
+			    				<h5>Statewide Objectives</h5>
+			    			</div>
+			    			<div class="large-8 columns" style="text-align: right">
+								<h5><a href="lakes_crossing_obj">Statewide Objective/Benchmark Details >></a></h5>
+							</div>
+			    		</div>
+
+			    	<div class="section-container vertical-tabs" data-section="vertical-tabs">
+
+			    		<section class="active">
+			    			<p class="title" data-section-title><a href="#" onclick="initTimeout()">Mental Health</a></p>
+			    			<div class="content" data-section-content>
+								<div class="row">
+									<div class="large-12 columns">
+										<div class="panel radius">
+											<center><h3>Objective: <a href="#">Mental Health</a></h3></center>
+											<p><strong>Objective Description:</strong> Provide accessible and affordable mental health services to people of all ages.</p>
+											<p><strong>Related Core Function:</strong> <a href="#">Health Services</a></p>
+										</div>
+										<h5>Benchmark: Poor Mental Health</h5>
+										<p>Average number of days in the previous month that a person could not perform work or household tasks due to mental illness.</p>
+										<a href="#" data-reveal-id="modalBenchmarkDetailsA" class="tiny button">More Details</a>
+										<div id="benchmarkChartA" style="width: 100%; height: 20em"></div>
+										<p><i>NOTE: While this initiative ties closely to this Statewide Benchmark, the population served by Lakes Crossing and this incremental increase in the population is not sufficient to move this benchmark materially</i></p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+						<section>
+							<p class="title" data-section-title><a href="#" onclick="initTimeout()">Reduce Repeat<br>Criminal Activity</a></p>
+							<div class="content" data-section-content>
+								<div class="row">
+									<div class="large-12 columns">
+										<div class="panel radius">
+											<center><h3>Objective: <a href="#">Reduce Repeat Criminal Activity</a></h3></center>
+											<p><strong>Objective Description:</strong></p>
+											<p><strong>Related Core Function:</strong> <a href="#">Public Safety</a></p>
+										</div>
+										<h5>Benchmark: Offender Revocation</h5>
+										<p>Percent of offenders returned/revoked within 36 months.</p>
+										<a href="#" data-reveal-id="modalBenchmarkDetailsB" class="tiny button">More Details</a>
+										<div id="benchmarkChartB" style="width: 100%; height: 20em"></div>
+										<p><i>NOTE: While this initiative ties closely to this Statewide Benchmark, the population served by Lakes Crossing and this incremental increase in the population is not sufficient to move this benchmark materially</i></p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					</div>
+		    </div>
+		  </section>
+
+		  <section>
+		    <p class="title" data-section-title><a href="#panel4" onclick="initTimeout()">Performance Measures - Initiative</a></p>
+			    <div class="content" data-section-content style="min-height: 20em">
+			    		<div class="row">
+			    			<div class="large-4 columns">
+			    			</div>
+			    			<div class="large-8 columns" style="text-align: right">
+								<h5><a href="lakes_crossing_pm">Performance Measure Details >></a></h5>
+							</div>
+			    		</div>
+
+						<div class="row">
+							<div class="large-12 columns">
+								<div class="panel radius">
+									<center><h3>Initiative-level Performance Measures (Summary)</h3></center>
+									<p>Initiative-level Performance Measures directly measure whether a program is accomplishing it’s stated purpose or goal.</p>
+								</div>
+								<div class="row">
+									<div class="large-2 columns"></div>
+									<div class="large-10 columns">
+										<h5>Number Waiting for Forensic Beds</h5>
+										<div id="PMInitiativeChartA" style="width: 100%; height: 20em"></div>
+										<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+										<hr>
+										<h5>Length of Time on Waiting List</h5>
+										<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+										<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+										<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="row">
+							<div class="large-12 columns">
+								<div class="panel radius">
+									<center><h3>Cost of Measurement</h3></center>
+									<h6>NOTE: It is possible and even likely that measurement of initiatives will have costs.  These should be identified in advance so that decision makers understand what is required.</h6>
+								</div>
+							</div>
+						</div>
+
+				</div>
+		  </section>
+
+
+		  <section>
+		    <p class="title" data-section-title><a href="#panel5" onclick="initTimeout()">Performance Measures - Agency</a></p>
+
+			    <div class="content" data-section-content style="min-height: 20em">
+		    		<div class="row">
+		    			<div class="large-4 columns">
+		    			</div>
+		    			<div class="large-8 columns" style="text-align: right">
+							<h5><a href="lakes_crossing_pm">Performance Measure Details >></a></h5>
+						</div>
+		    		</div>
+
+					<div class="row">
+						<div class="large-12 columns">
+							<div class="panel radius">
+								<center><h3>Agency-level Performance Measures (Summary)</h3></center>
+								<p>Agency-level Performance Measures are direct measures used by management to access their performance within this program.  They may or may not be directly tied to the initiative under consideration.</p>
+							</div>
+							<div class="row">
+								<div class="large-2 columns"></div>
+								<div class="large-10 columns">
+									<h5>Average Length of Stay for Discharged Patients</h5>
+									<div id="PMAgencyChartA" style="width: 100%; height: 20em"></div>
+									<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+									<p><i>Note: Goal is length of stay less than 115 days.</i></p>
+									<hr>
+									<h5>Percent of Clients Judged Competent at Discharge</h5>
+									<div id="PMAgencyChartB" style="width: 100%; height: 20em"></div>
+									<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+									<p><i>Note: The declining number of competent defendants can probably be accounted for by two factors. The first is the persisting increase in the acuity of clients both medically and psychiatrically. These clients are observed to be more and more difficult to treat and restore due damaging drug use and the erratic treatment course for many where they are on and off psychiatric medications. A second reason is that the courts are less willing to allow involuntary medication for treatment to competency and these clients are deemed incompetent because that facility is unable to deliver treatment to them. In this case the only option is transfer into the civil system.</i></p>
+									<hr>
+									<h5>Rehospitalization of Conditional Release Clients</h5>
+									<div id="PMAgencyChartC" style="width: 100%; height: 20em"></div>
+									<p><i>Note: The conditional release statutes, Nevada Revised Statute 178.461 through 178.471, were added to the law in 2007. Since that time three individuals have been released from Lake’s Crossing Center on conditional release. None of the three has been readmitted from 2007 to the present.</i></p>
+									<hr>
+									<h5>Average Cost per Client per Day</h5>
+									<div id="PMAgencyChartD" style="width: 100%; height: 20em"></div>
+									<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+								</div>
+							</div>
+						</div>
+					</div>
+
+		    	</div>
+		  </section>
+
+
+<!--Hide Population/Caseload Tab
+		  <section>
+		    <p class="title" data-section-title><a href="#panel6" onclick="initTimeout()">Population/Caseload</a></p>
+		    <div class="content" data-section-content style="min-height: 20em">
+
+			    		<div class="row">
+			    			<div class="large-4 columns">
+			    				<h5></h5>
+			    			</div>
+			    			<div class="large-8 columns" style="text-align: right">
+								<h5><a href="lakes_crossing_pop">Population/Caseload Details >></a></h5>
+							</div>
+			    		</div>
+
+			    	<div class="section-container vertical-tabs" data-section="vertical-tabs">
+
+			    		<section class="active">
+			    			<p class="title" data-section-title><a href="#" onclick="initTimeout()">Population</a></p>
+			    			<div class="content" data-section-content>
+								<div class="row">
+									<div class="large-12 columns">
+										<center><h3>Population</h3></center>
+										<p>Some individuals who are arrested for either misdemeanor or felony crimes may not be competent to stand trial.</p>
+										<div class="panel callout radius">
+											<p>Note to Jeff: Do we need a chart here? Should we consolidate these three tabs (Population, Caseload, Who Is Impacted)? If so, what info would we be adding on the 'Details' page?</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+			    		<section>
+			    			<p class="title" data-section-title><a href="#" onclick="initTimeout()">Caseload</a></p>
+			    			<div class="content" data-section-content>
+								<div class="row">
+									<div class="large-12 columns">
+										<center><h3>Caseload</h3></center>
+										<p>Lake’s Crossing’s primary mission is to evaluate and restore to competency individuals for whom there is a question of their competency to stand trial. A judge determines whether an incarcerated individual should receive a competency evaluation at Lake’s Crossing. Individuals who have been found to be “not guilty by reason of insanity” are also housed at this facility. In addition Lake’s Crossing is the location where “incompetent and dangerous” clients (NRS 178.461) are committed until they may be conditionally released or discharged from commitment.</p>
+
+										<h5>Average Daily Census</h5>
+										<div id="caseloadChartA" style="width: 100%; height: 20em"></div>
+										<p><i>Note: Daily census not to exceed 66 clients.</i></p>
+
+										<hr>
+										<h5>Client Referral Source by Region</h5>
+										<div class="panel callout">
+											<p>Russ Note: This chart needs formatting correction</p>
+										</div>
+										<div id="caseloadChartB" style="width: 100%; height: 20em"></div>
+										<p><i>Note: Most rural admissions are from Elko, Nye, Lyon, and Carson City counties.</i></p>
+									</div>
+								</div>
+							</div>
+						</section>
+						
+			    		<section>
+			    			<p class="title" data-section-title><a href="#" onclick="initTimeout()">Who Is Impacted?</a></p>
+			    			<div class="content" data-section-content>
+								<div class="row">
+									<div class="large-12 columns">
+										<center><h3>Who Is Impacted?</h3></center>
+										<p>This initiative impacts those individuals who are currently waiting for available forensic beds at Lake’s Crossing. The current long wait times are impacting these individuals’ ability to get a timely trial and may potentially violate their civil rights. Jails are also impacted because they are currently holding individuals who belong in a forensic facility. In addition, the public is bearing the cost of incarcerating these individuals who may be restored to competency if they receive the appropriate treatment.</p>
+									</div>
+								</div>
+			    			</div>
+			    		</section>
+
+				    </div>
+
+		    </div>
+		  </section>
+		 -->
+
+
+		</div>
+	</div>
+
+
+
+  	<div id="modalBenchmarkDetailsA" class="reveal-modal medium">
+	  <h3>Benchmark Details: Poor Mental Health</h3>
+		  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>What this Benchmark is Measuring?</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p>This benchmark measures the number of days in the previous month that an individual could not perform work or household tasks due to mental illness.</p>
+		  	</div>
+		  </div>
+		  <hr>
+	  	  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>Why this benchmark is an important measure of Government performance:</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p>Access to appropriate mental health services helps stabilize individuals, families, and communities.</p>
+		  	</div>
+		  </div>
+		  <hr>
+	  	  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>Data Source:</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p><a href="http://www.americashealthrankings.org/Rankings" target="_new">United Health Foundation, America's Health Rankings</a></p>
+		  		<p>Select Poor Mental Health Days under statistic.</p>
+		  	</div>
+		  </div>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
+  	<div id="modalBenchmarkDetailsB" class="reveal-modal medium">
+	  <h3>Benchmark Details: Reduce Repeat Criminal Activity</h3>
+		  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>What this Benchmark is Measuring?</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p>This benchmark measures the success of correctional efforts to reduce recidivism. For adults, Nevada Parole and Probation measures the percent of offenders revoked.</p>
+		  	</div>
+		  </div>
+		  <hr>
+	  	  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>Why this benchmark is an important measure of Government performance:</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p>This measures the effectiveness of efforts to improve the probability that offenders successfully re-enter society.<br><strong>Adults:</strong> Nevada Offender Tracking Information System (OTIS)<br><strong>Youth Parole:</strong> UNITY System</p>
+		  	</div>
+		  </div>
+		  <hr>
+	  	  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>Data Source:</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p><strong>Adults:</strong> Nevada Offender Tracking Information System - OTIS<br>
+		  		<strong>Youth Parole:</strong> UNITY System</p>
+		  	</div>
+		  </div>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
+  	<div id="modalDecUnitA" class="reveal-modal large">
+
+	  	<center><h4>Initiative: Lake's Crossing</h4>
+	  	<h5>Budget Account: 3645</h5>
+	  	<h5>Dec Unit: E-225</h5>
+		<table>
+		  <thead>
+		  	<tr>
+			    <th>Cat</td>
+			    <th>GL</td>
+			    <th>Description</td>
+			    <th>Year 1</td>
+			    <th>Year 2</td>
+			    <th>Schedule</td>
+		    </tr>
+		  </thead>
+		  <tr>
+		    <td>01</td>
+		    <td>5100</td>
+		    <td>SALARIES</td>
+		    <td align="right">$732,083.00</td>
+		    <td align="right">$1,006,812.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5200</td>
+		    <td>WORKERS COMPENSATION</td>
+		    <td align="right">$16,622.00</td>
+		    <td align="right">$20,667.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5300</td>
+		    <td>RETIREMENT</td>
+		    <td align="right">$188,511.00</td>
+		    <td align="right">$259,254.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5400</td>
+		    <td>PERSONNEL ASSESSMENT</td>
+		    <td align="right">$3,897.00</td>
+		    <td align="right">$5,222.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5500</td>
+		    <td>GROUP INSURANCE</td>
+		    <td align="right">$123,900.00</td>
+		    <td align="right">$166,880.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5700</td>
+		    <td>PAYROLL ASSESSMENT</td>
+		    <td align="right">$1,174.00</td>
+		    <td align="right">$1,608.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5750</td>
+		    <td>RETIRED EMPLOYEES GROUP INSURANCE</td>
+		    <td align="right">$17,792.00</td>
+		    <td align="right">$27,183.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5800</td>
+		    <td>UNEMPLOYMENT COMPENSATION</td>
+		    <td align="right">$1,472.00</td>
+		    <td align="right">$1,203.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5840</td>
+		    <td>MEDICARE</td>
+		    <td align="right">$10,616.00</td>
+		    <td align="right">$14,601.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7050</td>
+		    <td>EMPLOYEE BOND INSURANCE</td>
+		    <td align="right">$54.00</td>
+		    <td align="right">$54.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7054</td>
+		    <td>AG TORT CLAIM ASSESSMENT</td>
+		    <td align="right">$2,408.00</td>
+		    <td align="right">$2,408.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7060</td>
+		    <td>CONTRACTS</td>
+		    <td align="right">$323,664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>VENDOR SERVICES</td>
+		  </tr>
+		  <tr>
+		    <td>05</td>
+		    <td>8270</td>
+		    <td>SPECIAL EQUIPMENT &gt;$5,000</td>
+		    <td align="right">$51,456.00</td>
+		    <td align="right">$34,020.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7554</td>
+		    <td>EITS INFRASTRUCTURE ASSESSMENT</td>
+		    <td align="right">$2,586.00</td>
+		    <td align="right">$2,086.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7556</td>
+		    <td>EITS SECURITY ASSESSMENT</td>
+		    <td align="right">$2,031.00</td>
+		    <td align="right">$1,566.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7771</td>
+		    <td>COMPUTER SOFTWARE &lt;$5,000 - A</td>
+		    <td align="right">$664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>8371</td>
+		    <td>COMPUTER HARDWARE &lt;$5,000 - A</td>
+		    <td align="right">$2,400.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		    <tr style="background-color:#dddddd">
+		      <td></td>
+		      <td></td>
+		      <td><strong>Total:</strong></td>
+		      <td><strong>$1,481,330</strong></td>
+		      <td><strong>$1,543,564</strong></td>
+		      <td></td>
+		    </tr>
+		</table>
+		</center>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
+  	<div id="modalExpandedDescription" class="reveal-modal small">
+		<h3>Lake's Crossing: Expanded Description</h3>
+		<p>During the 77th Legislative Session, both the Governor and Legislature supported providing ten additional forensic mental health beds for the Lake’s Crossing Facility. These additional beds will become available by remodeling a portion of the Dini-Townsend Psychiatric Hospital on the Northern Nevada Adult Mental Health (NNAMHS) campus. This project would increase the number of available forensic beds from 66 to 76. Twenty new staff would be needed to support this expansion. The goal of the expansion is to reduce the length of time that mentally ill individuals wait in jails for transfer to the forensic mental health facility for competency evaluation and restorative treatment.</p>
+
+		<p>On July 26, 2013, DHHS submitted a letter to the State Public Works Division to expedite this project. Under NRS 338.011, State Public Works has the authority to designate projects as “emergency” if there is a threat to the health, safety or welfare of the public. Under the expedited timeline, it is anticipated that the project will be completed and ready for occupancy by November 15, 2013.</p>
+
+		<p>A long term solution to the issue of individuals waiting for forensic beds is also needed. Capital Improvement Project 13-C08, a full remodel of Building 3 (old Stein Hospital) on the Southern Nevada Mental Health Services (SNAMHS) campus, will open a number of forensic beds in Clark County. The completion of that project may eventually reduce the need for these additional forensic beds for Lake’s Crossing in the NNAMHS annex. At that time, the remodeled annex could be used for other purposes.</p>
+		
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+

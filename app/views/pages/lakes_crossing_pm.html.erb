@@ -1,0 +1,495 @@
+    <script type="text/javascript">
+		function drawPieChart() {
+			var pieData = google.visualization.arrayToDataTable([
+			  ['Task', 'Percent'],
+			  ['Direct Initiative Funding',     95],
+			  ['New Metrics',      5]
+			]);
+
+			var options = {
+			  title: 'Cost of New Metrics',
+			  legend: {position: 'none'},
+			};
+
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			chart.draw(pieData, options);
+		}
+
+		function drawCostOfInitiativeChart() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'New Funding'],
+			  ['FY14',  1481330],
+			  ['FY15',  1543564]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('costOfInitiativeChart'));
+			ac.draw(data, {
+				title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Funding", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawBenchmarkChartA() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  3.4,    3.8],
+		      ['2009',  3.4,    3.6],
+		      ['2010',  3.5,    4],
+		      ['2011',  3.5,    3.8],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				vAxis: {title: "Days", minValue: 0}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartA'));
+		    chart.draw(data, options);
+		}
+
+		function drawBenchmarkChartB() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  0,	0.23],
+		      ['2009',  null,	0.18],
+		      ['2010',  null,	0.27],
+		      ['2011',  null,	0.19],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+		      	//because of error when all values in a series are null, set the first values in the series (in the data array) to 0 and hide it with pointSize: 0
+		      	series: {0:{pointSize: 0}},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartB'));
+		    chart.draw(data, options);
+		}
+
+      	function drawPMInitiativeChartA() {
+			// Create and populate the data table.
+			var data = new google.visualization.DataTable();
+			data.addColumn('date', 'Date');
+			data.addColumn('number', 'Number Waiting (Actual)');
+			data.addColumn('number', 'Number Waiting (Projected)');
+			data.addRows([
+				[new Date(2012,4,10),	5,		null],
+				[new Date(2012,4,23),	6,		null],
+				[new Date(2012,5,17),	9,		null],
+				[new Date(2012,6,11),	7,		null],
+				[new Date(2012,6,29),	5,		null],
+				[new Date(2012,7,30),	8,		null],
+				[new Date(2012,8,13),	8,		null],
+				[new Date(2012,8,24),	7,		null],
+				[new Date(2012,9,7),	5,		null],
+				[new Date(2012,9,26),	8,		null],
+				[new Date(2012,10,18),	8,		null],
+				[new Date(2012,11,1),	6,		null],
+				[new Date(2012,12,20),	12,		null],
+				[new Date(2013,1,9),	13,		null],
+				[new Date(2013,1,10),	14,		null],
+				[new Date(2013,1,17),	15,		null],
+				[new Date(2013,1,31),	16,		null],
+				[new Date(2013,2,25),	18,		null],
+				[new Date(2013,3,8),	18,		null],
+				[new Date(2013,3,19),	23,		null],
+				[new Date(2013,3,25),	21,		null],
+				[new Date(2013,4,19),	26,		null],
+				[new Date(2013,4,29),	34,		null],
+				[new Date(2013,5,7),	31,		null],
+				[new Date(2013,5,20),	32,		null],
+				[new Date(2013,6,10),	36,		null],
+				[new Date(2013,6,20),	32,		null],
+				[new Date(2013,7,10),	36,		null],
+				[new Date(2013,7,10),	null,	36],
+				[new Date(2013,8,1),	null,	35],
+				[new Date(2013,10,1),	null,	34],
+				[new Date(2013,12,1),	null,	33],
+				[new Date(2014,2,1),	null,	30],
+				[new Date(2014,4,1),	null,	28],
+				[new Date(2014,6,1),	null,	26],
+				[new Date(2014,8,1),	null,	24],
+				[new Date(2014,10,1),	null,	20],
+				[new Date(2014,12,1),	null,	19],
+				[new Date(2015,2,1),	null,	18],
+				[new Date(2015,4,1),	null,	17],
+				[new Date(2015,6,1),	null,	15],
+				[new Date(2015,8,1),	null,	14],
+				[new Date(2015,10,1),	null,	13],
+				[new Date(2015,12,1),	null,	12],
+				[new Date(2016,2,1),	null,	12],
+				[new Date(2016,4,1),	null,	11],
+				[new Date(2016,6,1),	null,	11],
+				[new Date(2016,8,1),	null,	10],
+				[new Date(2016,10,1),	null,	9],
+				[new Date(2016,12,1),	null,	9]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.LineChart(document.getElementById('PMInitiativeChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Number Waiting", minValue: 0},
+				hAxis: {minValue: new Date(2012,1,1), maxValue: new Date(2016,1,1)},
+				pointSize: 3
+				//seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMInitiativeChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Wait Time (Actual)', 'Average Wait Time (Projected)'],
+			  ['FY10',  13,		null],
+			  ['FY11',  11,		null],
+			  ['FY12',  14,		null],
+			  ['FY13',  18,		null],
+			  ['FY14',  null,	17],
+			  ['FY15',  null,	15],
+			  ['FY16',  null,	13],
+			  ['FY17',  null,	12]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMInitiativeChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Length of Stay (Actual)', 'Average Length of Stay (Projected)'],
+			  ['FY08',  127,	null],
+			  ['FY09',  68,		null],
+			  ['FY10',  76,		null],
+			  ['FY11',  102,	null],
+			  ['FY12',  81,		null],
+			  ['FY13',  98,		null],
+			  ['FY14',  null,	100],
+			  ['FY15',  null,	95],
+			  ['FY16',  null,	90],
+			  ['FY17',  null,	88]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartB() {
+		    var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Percent Discharged Competant to Stand Trial (Actual)', 'Percent Discharged Competant to Stand Trial (Projected)'],
+			  ['FY08',  null,	null],
+			  ['FY09',  .84,	null],
+			  ['FY10',  .87,	null],
+			  ['FY11',  .81,	null],
+			  ['FY12',  .74,	null],
+			  ['FY13',  .71,	.71],
+			  ['FY14',  null,	.75],
+			  ['FY15',  null,	.78],
+			  ['FY16',  null,	.82],
+			  ['FY17',  null,	.86]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('PMAgencyChartB'));
+		    chart.draw(data, options);
+		}
+
+		function drawPMAgencyChartC() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY08',  0],
+			  ['FY09',  0],
+			  ['FY10',  0],
+			  ['FY11',  0],
+			  ['FY12',  0],
+			  ['FY13',  0],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartC'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartD() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Cost Per Client Per Day (Actual)', 'Average Cost Per Client Per Day (Projected)'],
+			  ['FY10',  513,	null],
+			  ['FY11',  424,	null],
+			  ['FY12',  420,	null],
+			  ['FY13',  378,	null],
+			  ['FY14',  null,	360],
+			  ['FY15',  null,	350],
+			  ['FY16',  null,	350],
+			  ['FY17',  null,	350]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartD'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Cost", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY07',  58],
+			  ['FY08',  57],
+			  ['FY09',  49],
+			  ['FY10',  48],
+			  ['FY11',  60],
+			  ['FY12',  55],
+			  ['FY13',  60],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Clark Co', 'Washoe Co', 'Rural'],
+			  ['FY09',  .63,      .18,	.20],
+			  ['FY10',  .73,      .19,	.08],
+			  ['FY11',  .65,      .21,	.14],
+			  ['FY12',  .68,      .20,	.12],
+			  ['FY13',  .67,      .23,	.10]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 24},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars",
+				isStacked:true
+			});
+		}
+
+		//draw all google charts after page load has completed
+		google.setOnLoadCallback(function() {
+			drawAllCharts();
+		});
+
+		//called by clicking on a tab. when a tab is selected, set a 10ms timer and then re-draw all google charts
+		function initTimeout() {
+			clearTimeout(doit);
+			doit = setTimeout(function() {
+			    drawAllCharts();
+			}, 10);
+		}
+
+		function drawAllCharts(){
+			//drawCostOfInitiativeChart();
+			//drawBenchmarkChartA();
+			//drawBenchmarkChartB();
+			drawPMInitiativeChartA();
+			drawPMInitiativeChartB();
+			drawPMAgencyChartA();
+			drawPMAgencyChartB();
+			drawPMAgencyChartC();
+			drawPMAgencyChartD();
+			//drawCaseloadChartA();
+			//drawCaseloadChartB();
+			//drawPieChart();
+		}
+
+    </script>
+  
+	<div class="row">
+		<div class="large-12 columns">
+			<ul class="breadcrumbs">
+			  <li>PPBB</li>
+			  <li><a href="list">Major Budget Initiatives</a></li>
+			  <li class="current"><a href="#">Lake's Crossing</a></li>
+			</ul>
+			<h2>Initiative: Lake's Crossing</h2>
+			<dl class="sub-nav">
+			  <!--<dt><strong>View:</strong></dt>-->
+			  <dd><a href="lakes_crossing">Overview</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_desc">Description/Justification</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_fund">Funding Details</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_obj">Statewide Objectives/Benchmarks Advanced</a></dd>
+			  <dd>|</dd>
+			  <dd class="active"><a href="lakes_crossing_pm">Performance Measures</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pop">Population/Caseload</a></dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel radius">
+				<center><h3>Initiative-level Performance Measures</h3></center>
+				<p>Initiative-level Performance Measures directly measure whether a program is accomplishing it’s stated purpose or goal.</p>
+			</div>
+			<div class="row">
+				<div class="large-2 columns"></div>
+				<div class="large-10 columns">
+					<h5>Number Waiting for Forensic Beds</h5>
+					<div id="PMInitiativeChartA" style="width: 100%; height: 20em"></div>
+					<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+			<hr>
+
+					<h5>Length of Time on Waiting List</h5>
+					<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+					<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+					<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>
+				</div>
+			</div>
+
+			<hr>
+			<br><br>
+
+			<div class="panel radius">
+			<center><h3>Cost of Measures</h3></center>
+				<h6>NOTE: It is possible and even likely that measurement of initiatives will have costs.  These should be identified in advance so that decision makers understand what is required.</h6>
+			</div>
+
+			<hr>
+			<br><br>
+
+			<div class="panel radius">
+			<center><h3>Agency-level Performance Measures</h3></center>
+				<p>Agency-level Performance Measures are direct measures used by management to access their performance within this program.  They may or may not be directly tied to the initiative under consideration.</p>
+			</div>
+
+			<div class="row">
+				<div class="large-2 columns"></div>
+				<div class="large-10 columns">
+					<h5>Average Length of Stay for Discharged Patients</h5>
+					<div id="PMAgencyChartA" style="width: 100%; height: 20em"></div>
+					<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+					<p><i>Note: Goal is length of stay less than 115 days.</i></p>
+
+			<hr>
+
+					<h5>Percent of Clients Judged Competent at Discharge</h5>
+					<div id="PMAgencyChartB" style="width: 100%; height: 20em"></div>
+					<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+					<p><i>Note: The declining number of competent defendants can probably be accounted for by two factors. The first is the persisting increase in the acuity of clients both medically and psychiatrically. These clients are observed to be more and more difficult to treat and restore due damaging drug use and the erratic treatment course for many where they are on and off psychiatric medications. A second reason is that the courts are less willing to allow involuntary medication for treatment to competency and these clients are deemed incompetent because that facility is unable to deliver treatment to them. In this case the only option is transfer into the civil system.</i></p>
+
+			<hr>
+
+					<h5>Rehospitalization of Conditional Release Clients</h5>
+					<div id="PMAgencyChartC" style="width: 100%; height: 20em"></div>
+					<p><i>Note: The conditional release statutes, Nevada Revised Statute 178.461 through 178.471, were added to the law in 2007. Since that time three individuals have been released from Lake’s Crossing Center on conditional release. None of the three has been readmitted from 2007 to the present.</i></p>
+			
+			<hr>
+
+					<h5>Average Cost per Client per Day</h5>
+					<div id="PMAgencyChartD" style="width: 100%; height: 20em"></div>
+					<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+				</div>
+			</div>
+
+			<hr>
+
+		</div>
+	</div>
+
+
+  	<div id="modalSampleModal" class="reveal-modal small">
+	  <h3>Expanded Description</h3>
+	  <p>Details here</p>
+	  <p><a href="#">-> Continue to Destination</a></p>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+

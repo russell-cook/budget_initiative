@@ -1,0 +1,737 @@
+
+    <script type="text/javascript">
+
+		function drawCostOfInitiativeChart() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'New Funding'],
+			  ['FY14',  25000000],
+			  ['FY15',  25000000]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('costOfInitiativeChart'));
+			ac.draw(data, {
+				title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Funding", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars",
+				//isStacked:true
+			});
+		}
+
+		function drawBenchmarkChartA() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  null,    null],
+		      ['2009',  null,    null],
+		      ['2010',  .78,    .62],
+		      ['2011',  null,    null],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartA'));
+		    chart.draw(data, options);
+		}
+
+		function drawBenchmarkChartB() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  0,    .57],
+		      ['2009',  null,    .62],
+		      ['2010',  null,    .65],
+		      ['2011',  null,    .65],
+		      ['2012', 	null, 	.70]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+		      	//because of error when all values in a series are null, set the first values in the series (in the data array) to 0 and hide it with pointSize: 0
+		      	series: {0:{pointSize: 0}},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartB'));
+		    chart.draw(data, options);
+		}
+
+		function drawBenchmarkChartC() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  0,    .54],
+		      ['2009',  null,    .60],
+		      ['2010',  null,    .66],
+		      ['2011',  null,    .45],
+		      ['2012', 	null, 	.49]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+		      	//because of error when all values in a series are null, set the first values in the series (in the data array) to 0 and hide it with pointSize: 0
+		      	series: {0:{pointSize: 0}},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartC'));
+		    chart.draw(data, options);
+		}
+
+      	function drawPMInitiativeChartA() {
+			// Create and populate the data table.
+			var data = new google.visualization.DataTable();
+			data.addColumn('date', 'Date');
+			data.addColumn('number', 'Number Waiting (Actual)');
+			data.addColumn('number', 'Number Waiting (Projected)');
+			data.addRows([
+				[new Date(2012,4,10),	5,		null],
+				[new Date(2012,4,23),	6,		null],
+				[new Date(2012,5,17),	9,		null],
+				[new Date(2012,6,11),	7,		null],
+				[new Date(2012,6,29),	5,		null],
+				[new Date(2012,7,30),	8,		null],
+				[new Date(2012,8,13),	8,		null],
+				[new Date(2012,8,24),	7,		null],
+				[new Date(2012,9,7),	5,		null],
+				[new Date(2012,9,26),	8,		null],
+				[new Date(2012,10,18),	8,		null],
+				[new Date(2012,11,1),	6,		null],
+				[new Date(2012,12,20),	12,		null],
+				[new Date(2013,1,9),	13,		null],
+				[new Date(2013,1,10),	14,		null],
+				[new Date(2013,1,17),	15,		null],
+				[new Date(2013,1,31),	16,		null],
+				[new Date(2013,2,25),	18,		null],
+				[new Date(2013,3,8),	18,		null],
+				[new Date(2013,3,19),	23,		null],
+				[new Date(2013,3,25),	21,		null],
+				[new Date(2013,4,19),	26,		null],
+				[new Date(2013,4,29),	34,		null],
+				[new Date(2013,5,7),	31,		null],
+				[new Date(2013,5,20),	32,		null],
+				[new Date(2013,6,10),	36,		null],
+				[new Date(2013,6,20),	32,		null],
+				[new Date(2013,7,10),	36,		null],
+				[new Date(2013,7,10),	null,	36],
+				[new Date(2013,8,1),	null,	35],
+				[new Date(2013,10,1),	null,	34],
+				[new Date(2013,12,1),	null,	33],
+				[new Date(2014,2,1),	null,	30],
+				[new Date(2014,4,1),	null,	28],
+				[new Date(2014,6,1),	null,	26],
+				[new Date(2014,8,1),	null,	24],
+				[new Date(2014,10,1),	null,	20],
+				[new Date(2014,12,1),	null,	19],
+				[new Date(2015,2,1),	null,	18],
+				[new Date(2015,4,1),	null,	17],
+				[new Date(2015,6,1),	null,	15],
+				[new Date(2015,8,1),	null,	14],
+				[new Date(2015,10,1),	null,	13],
+				[new Date(2015,12,1),	null,	12],
+				[new Date(2016,2,1),	null,	12],
+				[new Date(2016,4,1),	null,	11],
+				[new Date(2016,6,1),	null,	11],
+				[new Date(2016,8,1),	null,	10],
+				[new Date(2016,10,1),	null,	9],
+				[new Date(2016,12,1),	null,	9]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.LineChart(document.getElementById('PMInitiativeChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Number Waiting", minValue: 0},
+				hAxis: {minValue: new Date(2012,1,1), maxValue: new Date(2016,1,1)},
+				pointSize: 3
+				//seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMInitiativeChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Wait Time (Actual)', 'Average Wait Time (Projected)'],
+			  ['FY10',  13,		null],
+			  ['FY11',  11,		null],
+			  ['FY12',  14,		null],
+			  ['FY13',  18,		null],
+			  ['FY14',  null,	17],
+			  ['FY15',  null,	15],
+			  ['FY16',  null,	13],
+			  ['FY17',  null,	12]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMInitiativeChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Length of Stay (Actual)', 'Average Length of Stay (Projected)'],
+			  ['FY08',  127,	null],
+			  ['FY09',  68,		null],
+			  ['FY10',  76,		null],
+			  ['FY11',  102,	null],
+			  ['FY12',  81,		null],
+			  ['FY13',  98,		null],
+			  ['FY14',  null,	100],
+			  ['FY15',  null,	95],
+			  ['FY16',  null,	90],
+			  ['FY17',  null,	88]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartB() {
+		    var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Percent Discharged Competant to Stand Trial (Actual)', 'Percent Discharged Competant to Stand Trial (Projected)'],
+			  ['FY08',  null,	null],
+			  ['FY09',  .84,	null],
+			  ['FY10',  .87,	null],
+			  ['FY11',  .81,	null],
+			  ['FY12',  .74,	null],
+			  ['FY13',  .71,	.71],
+			  ['FY14',  null,	.75],
+			  ['FY15',  null,	.78],
+			  ['FY16',  null,	.82],
+			  ['FY17',  null,	.86]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('PMAgencyChartB'));
+		    chart.draw(data, options);
+		}
+
+		function drawPMAgencyChartC() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY08',  0],
+			  ['FY09',  0],
+			  ['FY10',  0],
+			  ['FY11',  0],
+			  ['FY12',  0],
+			  ['FY13',  0],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartC'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartD() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Cost Per Client Per Day (Actual)', 'Average Cost Per Client Per Day (Projected)'],
+			  ['FY10',  513,	null],
+			  ['FY11',  424,	null],
+			  ['FY12',  420,	null],
+			  ['FY13',  378,	null],
+			  ['FY14',  null,	360],
+			  ['FY15',  null,	350],
+			  ['FY16',  null,	350],
+			  ['FY17',  null,	350]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartD'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Cost", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY07',  58],
+			  ['FY08',  57],
+			  ['FY09',  49],
+			  ['FY10',  48],
+			  ['FY11',  60],
+			  ['FY12',  55],
+			  ['FY13',  60],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Clark Co', 'Washoe Co', 'Rural'],
+			  ['FY09',  .63,      .18,	.20],
+			  ['FY10',  .73,      .19,	.08],
+			  ['FY11',  .65,      .21,	.14],
+			  ['FY12',  .68,      .20,	.12],
+			  ['FY13',  .67,      .23,	.10]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 24},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars",
+				isStacked:true
+			});
+		}
+
+		function drawAllCharts(){
+			drawCostOfInitiativeChart();
+			drawBenchmarkChartA();
+			drawBenchmarkChartB();
+			drawBenchmarkChartC();
+			//drawPMInitiativeChartA();
+			//drawPMInitiativeChartB();
+			//drawPMAgencyChartA();
+			//drawPMAgencyChartB();
+			//drawPMAgencyChartC();
+			//drawPMAgencyChartD();
+			//drawCaseloadChartA();
+			//drawCaseloadChartB();
+		}
+
+    </script>
+  
+	<div class="row">
+		<div class="large-12 columns">
+			<ul class="breadcrumbs">
+			  <li>PPBB</li>
+			  <li><a href="list">Major Budget Initiatives</a></li>
+			  <li class="current"><a href="#">English Language Learner Program</a></li>
+			</ul>
+			<h2>Initiative: English Language Learner Program</h2>
+			<!--
+			<dl class="sub-nav">
+			  <dd class="active"><a href="#">Overview</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Description/Justification</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Funding Details</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Statewide Objectives/Benchmarks Advanced</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Performance Measures</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Population/Caseload</a></dd>
+			</dl>
+			-->
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-7 columns">
+			<h4>Description (Summary)</h4>
+			<p>During the 77th Legislative Session, both the Governor and Legislature agreed that providing funding to better serve the English Language Learner population, particularly in the early years of education (pre-kindergarten through fourth grade), was critical to improving the educational success of Nevada’s children.  Our vision for Nevada’s English Language Learners is that students acquire academic English and content mastery when they are meaningfully engaged in undiluted grade level content learning and problem solving with their teachers and their peers. ELL and former ELL students are successful when they graduate with the ability to continue in post-secondary education or training opportunities.  We expect they will have the foundation and disposition to participate in and contribute to the society of their home and community.
+			<!--<br><a href="#">Expanded Description >></a>--></p>
+
+			<h4>Justification (Summary)</h4>
+			<p>The ELL population has not previously received dedicated state education funds, yet over 68,000 of the state’s 445,000 students, or almost one out of every six students, is an ELL student.  Current and former ELL students comprise nearly one of every three Nevada students.  However, data suggests that students who successfully transition from being an ELL student to a former ELL student (former ELL students are those who have passed the English proficiency examination), within the expected timeframe (usually four to six years) perform better on assessments than the general student population.  Students within two years of exit perform 4.1% higher on the Math CRT and 1.8% higher on the Language Arts CRT.  
+			<!--<br><a href="#">Expanded Justification >></a>--></p>
+		</div>
+		<div class="large-5 columns">
+			<div class="panel">
+				<!--<center><h4>Cost of Initiative</h4></center>-->
+				<div id="costOfInitiativeChart" style="width: 100%; height: 20em"></div>
+				<br>
+				<p>This is a new program requiring $25 million in State General Fund Appropriations per year ($50 million in total) during the 2014-15 biennium. </p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="section-container auto" data-section>
+
+		  <section class="active">
+		    <p class="title" data-section-title><a href="#" onclick="initTimeout()">Funding Summary</a></p>
+		    <div class="content" data-section-content style="min-height: 20em">
+
+	    		<div class="row">
+	    			<div class="large-4 columns">
+						<h5>Lead Agency:</h5>
+	    			</div>
+	    			<div class="large-8 columns" style="text-align: right">
+						<!--<h5><a href="#">Funding Details >></a></h5>-->
+					</div>
+	    		</div>
+
+		    	<div class="row">
+		    		<div class="large-5 columns">
+						<ul class="no-bullet">
+							<li>
+								<ul>
+									<li><h6><a href="#">Department of Education (NDE)</a></h6></li>
+								</ul>
+							</li>
+						</ul>
+						<h5>Secondary Agencies:</h5>
+						<ul class="no-bullet">
+							<li>
+								<ul>
+									<li><h6>None</h6></li>
+								</ul>
+							</li>
+						</ul>
+						<h5>Cost Analysis (Summary)</h5>
+						<p>This initiative requires $25 million in State General Fund Appropriations per year ($50 million in total) during the 2014-15 biennium. Approximately $28.6 million is provided by NDE's budget, and approximately $21.3 million is provided by SB 504 (Section 16.2). In addition, $50,000 per year ($100,000 in total) is provided by SB 504 (Section 16.3) for costs associated with the English Mastery Council. </p>
+				    </div>
+
+				    <div class="large-7 columns">
+
+						<table width="100%">
+						  <thead>
+						    <tr>
+						      <th>Decision Unit</th>
+						      <th>Agency</th>
+						      <th>Budget Account</th>
+						      <th>FY14</th>
+						      <th>FY15</th>
+						      <th>Biennium</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td>E-276</td>
+						      <td>NDE</td>
+						      <td>2615</td>
+						      <td align="right">$11,293,989</td>
+						      <td align="right">$17,262,400</td>
+						      <td align="right">$28,556,389</td>
+						    </tr>
+						  </tbody>
+
+						  <thead>
+						    <tr>
+						      <th>Bill</th>
+						      <th></th>
+						      <th></th>
+						      <th></th>
+						      <th></th>
+						      <th></th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td>SB 504</td>
+						      <td>NDE</td>
+						      <td>2615</td>
+						      <td align="right">$13,656,011</td>
+						      <td align="right">$7,687,600</td>
+						      <td align="right">$21,343,611</td>
+						    </tr>
+						    <tr>
+						      <td>SB 504</td>
+						      <td>NDE</td>
+						      <td>2673</td>
+						      <td align="right">$50,000</td>
+						      <td align="right">$50,000</td>
+						      <td align="right">$100,000</td>
+						    </tr>
+						    <tr style="background-color:#dddddd">
+						      <td><strong>Total:</strong></td>
+						      <td></td>
+						      <td></td>
+						      <td align="right"><strong>$25,000,000</strong></td>
+						      <td align="right"><strong>$25,000,000</strong></td>
+						      <td align="right"><strong>$50,000,000</strong></td>
+						    </tr>
+						  </tbody>
+						</table>
+
+					</div>
+				</div>
+		    </div>
+		  </section>
+
+		  <section>
+		    <p class="title" data-section-title><a href="#" onclick="initTimeout()">Objectives/Benchmarks Advanced</a></p>
+		    <div class="content" data-section-content style="min-height: 20em">
+			    		<div class="row">
+			    			<div class="large-4 columns">
+			    				<h5>Statewide Objectives</h5>
+			    			</div>
+			    			<div class="large-8 columns" style="text-align: right">
+								<!--<h5><a href="#">Statewide Objective/Benchmark Details >></a></h5>-->
+							</div>
+			    		</div>
+
+			    	<div class="section-container vertical-tabs" data-section="vertical-tabs">
+
+			    		<section class="active">
+			    			<p class="title" data-section-title><a href="#" onclick="initTimeout()">K-12 Performance</a></p>
+			    			<div class="content" data-section-content>
+								<div class="row">
+									<div class="large-12 columns">
+										<div class="panel radius">
+											<center><h3>Objective: <a href="#">K-12 Performance</a></h3></center>
+											<p><strong>Objective Description:</strong> Increase the overall educational level while reducing the achievement gap across various ethnic groups.</p>
+											<p><strong>Related Core Function:</strong> <a href="#">Education and Workforce Development</a></p>
+										</div>
+										<h5>Benchmark: 4th Grade Reading Level Change</h5>
+										<p>Change in student reading level from 4th to 5th grade.</p>
+										<p style="color: red"><i>No data available at this time</i></p>
+										<hr>
+										<h5>Benchmark: 8th Grade Reading Level Change</h5>
+										<p>Change in student reading level from 8th to 9th grade.</p>
+										<p style="color: red"><i>No data available at this time</i></p>
+										<hr>
+										<h5>Benchmark: Achievement Gap</h5>
+										<p>Closing the Elementary and Secondary Education Act achievement gap between highest and lowest demographic groups.</p>
+										<p style="color: red"><i>No data available at this time</i></p>
+									</div>
+								</div>
+							</div>
+						</section>
+
+			    		<section>
+			    			<p class="title" data-section-title><a href="#" onclick="initTimeout()">K-12 Graduation</a></p>
+			    			<div class="content" data-section-content>
+								<div class="row">
+									<div class="large-12 columns">
+										<div class="panel radius">
+											<center><h3>Objective: <a href="#">K-12 Graduation</a></h3></center>
+											<p><strong>Objective Description:</strong> All students will graduate from the K-12 education system ready for advanced education or entry into the workforce.</p>
+											<p><strong>Related Core Function:</strong> <a href="#">Education and Workforce Development</a></p>
+										</div>
+										<h5>Benchmark: Nevada's Graduation Rate</h5>
+										<p>Graduation rate from K-12 education system.</p>
+										<div id="benchmarkChartA" style="width: 100%; height: 20em"></div>										
+									</div>
+								</div>
+							</div>
+						</section>
+
+			    		<section>
+			    			<p class="title" data-section-title><a href="#" onclick="initTimeout()">Math and Reading</a></p>
+			    			<div class="content" data-section-content>
+								<div class="row">
+									<div class="large-12 columns">
+										<div class="panel radius">
+											<center><h3>Objective: <a href="#">Math and Reading</a></h3></center>
+											<p><strong>Objective Description:</strong> Improve Nevada student educational foundation by improving math and reading skills.</p>
+											<p><strong>Related Core Function:</strong> <a href="#">Education and Workforce Development</a></p>
+										</div>
+										<h5>Benchmark: 4th Grade Reading</h5>
+										<p>Percent of 4th grade students meeting reading proficiency standards.</p>
+										<div id="benchmarkChartB" style="width: 100%; height: 20em"></div>
+										<br>									
+										<h5>Benchmark: 8th Grade Reading</h5>
+										<p>Percent of 8th grade students meeting reading proficiency standards.</p>
+										<div id="benchmarkChartC" style="width: 100%; height: 20em"></div>
+									</div>
+								</div>
+							</div>
+						</section>
+
+					</div>
+		    </div>
+		  </section>
+
+		  <section>
+		    <p class="title" data-section-title><a href="#panel4" onclick="initTimeout()">Performance Measures - Initiative</a></p>
+			    <div class="content" data-section-content style="min-height: 20em">
+			    		<div class="row">
+			    			<div class="large-4 columns">
+			    			</div>
+			    			<div class="large-8 columns" style="text-align: right">
+								<!--<h5><a href="#">Performance Measure Details >></a></h5>-->
+							</div>
+			    		</div>
+
+						<div class="row">
+							<div class="large-12 columns">
+								<div class="panel radius">
+									<center><h3>Initiative-level Performance Measures (Summary)</h3></center>
+									<p>Initiative-level Performance Measures directly measure whether a program is accomplishing it’s stated purpose or goal.</p>
+								</div>
+								<div class="row">
+									<div class="large-2 columns"></div>
+									<div class="large-10 columns">
+										<h5>ACCESS (World Class Instructional and Design and Assessment – WIDA) English Language Proficiency Assessment (ELPA) scores (all districts)</h5>
+												<p style="color: red"><i>No data available at this time</i></p>
+										<!--<div id="PMInitiativeChartA" style="width: 100%; height: 20em"></div>
+										<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>-->
+										<hr>
+										<h5>Criterion Referenced Test scores</h5>
+												<p style="color: red"><i>No data available at this time</i></p>
+										<!--<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+										<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+										<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>-->
+										<hr>
+										<h5>Measures of Academics Performance (MAPs)</h5>
+												<p style="color: red"><i>No data available at this time</i></p>
+										<!--<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+										<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+										<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>-->
+										<hr>
+										<h5>Early Childhood Environmental Rating Scale (ECERS)</h5>
+												<p style="color: red"><i>No data available at this time</i></p>
+										<!--<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+										<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+										<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>-->
+										<hr>
+										<h5>Pre-LAS (Language Assessment Scale)</h5>
+												<p style="color: red"><i>No data available at this time</i></p>
+										<!--<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+										<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+										<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>-->
+										<hr>
+										<h5>Peabody Picture Vocabulary Test (PPVT-4)</h5>
+												<p style="color: red"><i>No data available at this time</i></p>
+										<!--<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+										<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+										<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>-->
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<hr>
+
+						<div class="row">
+							<div class="large-12 columns">
+								<div class="panel radius">
+									<center><h3>Cost of Measurement</h3></center>
+									<h6>NOTE: It is possible and even likely that measurement of initiatives will have costs.  These should be identified in advance so that decision makers understand what is required.</h6>
+								</div>
+							</div>
+						</div>
+
+				</div>
+		  </section>
+
+
+		  <section>
+		    <p class="title" data-section-title><a href="#panel5" onclick="initTimeout()">Performance Measures - Agency</a></p>
+
+			    <div class="content" data-section-content style="min-height: 20em">
+		    		<div class="row">
+		    			<div class="large-4 columns">
+		    			</div>
+		    			<div class="large-8 columns" style="text-align: right">
+							<!--<h5><a href="#">Performance Measure Details >></a></h5>-->
+						</div>
+		    		</div>
+
+					<div class="row">
+						<div class="large-12 columns">
+							<div class="panel radius">
+								<center><h3>Agency-level Performance Measures (Summary)</h3></center>
+								<p>Agency-level Performance Measures are direct measures used by management to access their performance within this program.  They may or may not be directly tied to the initiative under consideration.</p>
+							</div>
+							<div class="row">
+								<div class="large-2 columns"></div>
+								<div class="large-10 columns">
+									<h5>Percent grantee program evaluation reports reviewed</h5>
+									<p style="color: red"><i>No data available at this time</i></p>
+									<!--<div id="PMAgencyChartA" style="width: 100%; height: 20em"></div>
+									<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
+									<p><i>Note: Goal is length of stay less than 115 days.</i></p>-->
+									<hr>
+									<h5>Percent of programs receiving site visit and technical assistance from NDE program staff</h5>
+									<p style="color: red"><i>No data available at this time</i></p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+		    	</div>
+		  </section>
+
+		</div>
+	</div>
+
+  <script>
+  
+  </script>

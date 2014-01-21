@@ -1,0 +1,496 @@
+    <script type="text/javascript">
+		function drawPieChart() {
+			var pieData = google.visualization.arrayToDataTable([
+			  ['Task', 'Percent'],
+			  ['Direct Initiative Funding',     95],
+			  ['New Metrics',      5]
+			]);
+
+			var options = {
+			  title: 'Cost of New Metrics',
+			  legend: {position: 'none'},
+			};
+
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			chart.draw(pieData, options);
+		}
+
+		function drawCostOfInitiativeChart() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'New Funding'],
+			  ['FY14',  1481330],
+			  ['FY15',  1543564]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('costOfInitiativeChart'));
+			ac.draw(data, {
+				title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Funding", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawBenchmarkChartA() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  3.4,    3.8],
+		      ['2009',  3.4,    3.6],
+		      ['2010',  3.5,    4],
+		      ['2011',  3.5,    3.8],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				vAxis: {title: "Days", minValue: 0}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartA'));
+		    chart.draw(data, options);
+		}
+
+		function drawBenchmarkChartB() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  0,	0.23],
+		      ['2009',  null,	0.18],
+		      ['2010',  null,	0.27],
+		      ['2011',  null,	0.19],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+		      	//because of error when all values in a series are null, set the first values in the series (in the data array) to 0 and hide it with pointSize: 0
+		      	series: {0:{pointSize: 0}},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartB'));
+		    chart.draw(data, options);
+		}
+
+      	function drawPMInitiativeChartA() {
+			// Create and populate the data table.
+			var data = new google.visualization.DataTable();
+			data.addColumn('date', 'Date');
+			data.addColumn('number', 'Number Waiting');
+			data.addRows([
+				[new Date(2012,4,10),5],
+				[new Date(2012,4,23),6],
+				[new Date(2012,5,17),9],
+				[new Date(2012,6,11),7],
+				[new Date(2012,6,29),5],
+				[new Date(2012,7,30),8],
+				[new Date(2012,8,13),8],
+				[new Date(2012,8,24),7],
+				[new Date(2012,9,7),5],
+				[new Date(2012,9,26),8],
+				[new Date(2012,10,18),8],
+				[new Date(2012,11,1),6],
+				[new Date(2012,12,20),12],
+				[new Date(2013,1,9),13],
+				[new Date(2013,1,10),14],
+				[new Date(2013,1,17),15],
+				[new Date(2013,1,31),16],
+				[new Date(2013,2,25),18],
+				[new Date(2013,3,8),18],
+				[new Date(2013,3,19),23],
+				[new Date(2013,3,25),21],
+				[new Date(2013,4,19),26],
+				[new Date(2013,4,29),34],
+				[new Date(2013,5,7),31],
+				[new Date(2013,5,20),32],
+				[new Date(2013,6,10),36],
+				[new Date(2013,6,20),32],
+				[new Date(2013,7,10),36]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.LineChart(document.getElementById('PMInitiativeChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Number Waiting", minValue: 0},
+				//hAxis: {title: "Date"},
+				pointSize: 3
+				//seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMInitiativeChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Wait Time (days)'],
+			  ['FY10',  13],
+			  ['FY11',  11],
+			  ['FY12',  14],
+			  ['FY13',  18]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMInitiativeChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Length of Stay (days)'],
+			  ['FY08',  127],
+			  ['FY09',  68],
+			  ['FY10',  76],
+			  ['FY11',  102],
+			  ['FY12',  81],
+			  ['FY13',  98],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartB() {
+		    var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Percent Discharged Competant to Stand Trial'],
+			  ['FY08',  null],
+			  ['FY09',  .84],
+			  ['FY10',  .87],
+			  ['FY11',  .81],
+			  ['FY12',  .74],
+			  ['FY13',  .71],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('PMAgencyChartB'));
+		    chart.draw(data, options);
+		}
+
+		function drawPMAgencyChartC() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY08',  0],
+			  ['FY09',  0],
+			  ['FY10',  0],
+			  ['FY11',  0],
+			  ['FY12',  0],
+			  ['FY13',  0],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartC'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartD() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Cost Per Client Per Day'],
+			  ['FY10',  513],
+			  ['FY11',  424],
+			  ['FY12',  420],
+			  ['FY13',  378],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartD'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Cost", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY07',  58],
+			  ['FY08',  57],
+			  ['FY09',  49],
+			  ['FY10',  48],
+			  ['FY11',  60],
+			  ['FY12',  55],
+			  ['FY13',  60],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Clark Co', 'Washoe Co', 'Rural'],
+			  ['FY09',  .63,      .18,	.20],
+			  ['FY10',  .73,      .19,	.08],
+			  ['FY11',  .65,      .21,	.14],
+			  ['FY12',  .68,      .20,	.12],
+			  ['FY13',  .67,      .23,	.10]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 24},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars",
+				isStacked:true
+			});
+		}
+
+		function drawJustificationChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Wait Time (days)'],
+			  ['FY08',  127],
+			  ['FY09',  68],
+			  ['FY10',  76],
+			  ['FY11',  102],
+			  ['FY12',  81],
+			  ['FY13',  98],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('justificationChartA'));
+			ac.draw(data, {
+				title : 'Average Length of Stay for Discharged Patients',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawJustificationChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Wait Time (days)'],
+			  ['FY08',  null],
+			  ['FY09',  null],
+			  ['FY10',  13],
+			  ['FY11',  11],
+			  ['FY12',  14],
+			  ['FY13',  18],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('justificationChartB'));
+			ac.draw(data, {
+				title : 'Avg Time Waiting In Jail for Transport to Lakes Crossing',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawAllCharts(){
+			//drawCostOfInitiativeChart();
+			//drawBenchmarkChartA();
+			//drawBenchmarkChartB();
+			//drawPMInitiativeChartA();
+			//drawPMInitiativeChartB();
+			//drawPMAgencyChartA();
+			//drawPMAgencyChartB();
+			//drawPMAgencyChartC();
+			//drawPMAgencyChartD();
+			//drawCaseloadChartA();
+			//drawCaseloadChartB();
+			//drawPieChart();
+			drawJustificationChartA();
+			drawJustificationChartB();
+		}
+
+    </script>
+	<div class="row">
+		<div class="large-12 columns">
+			<ul class="breadcrumbs">
+			  <li>PPBB</li>
+			  <li><a href="list">Major Budget Initiatives</a></li>
+			  <li class="current"><a href="#">Lake's Crossing</a></li>
+			</ul>
+			<h2>Initiative: Lake's Crossing</h2>
+			<dl class="sub-nav">
+			  <!--<dt><strong>View:</strong></dt>-->
+			  <dd><a href="lakes_crossing">Overview</a></dd>
+			  <dd>|</dd>
+			  <dd class="active"><a href="lakes_crossing_desc">Description/Justification</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_fund">Funding Details</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_obj">Statewide Objectives/Benchmarks Advanced</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pm">Performance Measures</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pop">Population/Caseload</a></dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel"><center><h3 style="margin: 0em">Description</h3></center></div>
+
+			<p>During the 77th Legislative Session, both the Governor and Legislature supported providing ten additional forensic mental health beds for the Lake’s Crossing Facility. These additional beds will become available by remodeling a portion of the Dini-Townsend Psychiatric Hospital on the Northern Nevada Adult Mental Health (NNAMHS) campus. This project would increase the number of available forensic beds from 66 to 76. Twenty new staff would be needed to support this expansion. The goal of the expansion is to reduce the length of time that mentally ill individuals wait in jails for transfer to the forensic mental health facility for competency evaluation and restorative treatment.</p>
+
+			<p>On July 26, 2013, DHHS submitted a letter to the State Public Works Division to expedite this project. Under NRS 338.011, State Public Works has the authority to designate projects as “emergency” if there is a threat to the health, safety or welfare of the public. Under the expedited timeline, it is anticipated that the project will be completed and ready for occupancy by November 15, 2013.</p>
+
+			<p>A long term solution to the issue of individuals waiting for forensic beds is also needed. Capital Improvement Project 13-C08, a full remodel of Building 3 (old Stein Hospital) on the Southern Nevada Mental Health Services (SNAMHS) campus, will open a number of forensic beds in Clark County. The completion of that project may eventually reduce the need for these additional forensic beds for Lake’s Crossing in the NNAMHS annex. At that time, the remodeled annex could be used for other purposes.</p>
+
+			<p>Population growth, changes in court procedures, and other factors have led to increases in the number of individuals requiring treatment at Lake’s Crossing, the state’s only forensic mental health facility. At the same time, the length of stay for discharged patients at Lake’s has increased from an average of 68 days in Fiscal Year 2009 to 98 days in Fiscal Year 2013.</p>
+
+			<a id="justification"></a>
+
+			<div class="panel"><center><h3 style="margin: 0em">Justification</h3></center></div>
+
+			<div class="panel" style="width: 100%; max-width: 30em; float: right; margin: 1em; margin-top: 0em; margin-right: 0em">
+				<div id="justificationChartA" style="width: 100%; height: 20em"></div>
+			</div>
+
+			<p>Population growth, changes in court procedures, and other factors have led to increases in the number of individuals requiring treatment at Lake’s Crossing, the state’s only forensic mental health facility. At the same time, the length of stay for discharged patients at Lake’s has increased from an average of 68 days in Fiscal Year 2009 to 98 days in Fiscal Year 2013.</p>
+
+			<p>In addition to longer lengths of stay for discharged clients, the number of inpatient clients on long term commitment has increased since 2007 when statute was amended to allow for long term commitment of “incompetent and dangerous” clients (NRS 178.461). Lake’s Crossing currently has nine inpatient clients on long term commitment as “incompetent and dangerous” or “not guilty by reason of insanity.” These nine beds have not turned over since the time of commitment for these individuals and potentially will not turnover for years. Essentially those beds are no longer available for the treatment of restoration clients.</p>
+
+			<p>Because of the increased demand for forensic beds and reduced turnover of existing beds, a growing number of individuals are waiting in county jails for transfer to Lake’s Crossing. In addition, the length of time that individuals are waiting in jail for transport to Lake’s Crossing has also increased.</p>
+
+			<p>On June 24, 2013 a lawsuit was filed by the Clark County Public Defender’s office on behalf of several individuals against DHHS because of delays in getting the individuals admitted to Lake’s Crossing for restorative treatment. The lawsuit alleges that the plaintiff’s civil rights are being impaired and that they are being inappropriately detained in jails. The ten bed expansion for Lake’s Crossing should help alleviate some of this backlog. </p>
+
+			<div class="panel" style="width: 100%; max-width: 30em; float: left; margin: 1em; margin-top: 0em; margin-left: 0em">
+				<div id="justificationChartB" style="width: 100%; height: 20em"></div>
+				<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>
+			</div>
+			
+			<p>Although statute does not specifically indicate a maximum time that a defendant who is in need of restoration may wait in the jail, it is specified that when someone is found incompetent to proceed they must be “conveyed forthwith into the custody of the Administrator of Public and Behavioral Health.” Consequently the implication is they may not be detained in the jail for any significant period of time. There is considerable case law that sets the basis for what is considered a reasonable time frame for transfer from jail to a psychiatric hospital. The case which was applied in the Lake’s Crossing litigation in 2005 was the Mink Case in Oregon.</p>
+
+			<p>Following the 2005 litigation, a stipulated agreement was reached with the plaintiffs, Nevada Disabilities Advocate Law Center, and was signed by a Federal Judge. This agreement defined “prompt restorative treatment” as “providing appropriate treatment to competency with seven days from the Division’s receipt of a court order committing an incapacitated criminal defendant to the custody of the Division pursuant to NRS 178.425.” This agreement led to the original forensic bed expansion into the NNAMHS annex. These additional beds and additional cooperation with the court in Las Vegas led to an immediate reduction in the waiting list. Establishing a Specialty Competency Court and a central administrative contact for competency proceeding caused orders to be sent timelier and helped expedite Evidentiary Hearings for Involuntary Medication. This process allowed Lake’s Crossing to keep the census below 66 inpatients, without a waiting list that has significant excessive wait times, from 2006 until December of 2012. </p>
+
+			<p>No elopements have occurred from the first expansion into the NNAMHS annex. Clients have been managed there without any significant incidents. The staff triages all clients that are assigned there and all clients are admitted through the main facility. Any transfers to the annex must be approved by the Clinical Coordinating Committee. The bulk of clients at the annex are women and therefore the annex facility focuses on a women’s program. A few disabled males have also shared that space. These are generally lower risk clients who are unlikely to need seclusion or restraint and are not an elopement risk.</p>
+
+			<a id="alternatives"></a>
+
+			<div class="panel"><center><h3 style="margin: 0em">Other Alternatives Considered</h3></center></div>
+			<p>DHHS and the Division of Public and Behavior Health have undertaken several operational changes to address the problems leading to the need for expanding the number of available forensic beds at Lake’s Crossing. The number of clients evaluated in an outpatient setting has increased. In addition Lake’s Crossing endeavors to provide restoration to competency in outpatient setting, whenever that is appropriate. Lake’s Crossing has also implemented a policy of recommending misdemeanants be diverted to the civil hospital if they have charges that can be dismissed and the clients are appropriately treated in that setting.</p>
+			<p>Jail Based competency was an alternative to the bed expansion that was considered at length. Our legal counsel indicated that any jail based competency program would need to be the substantial equivalency of the current forensic psychiatric hospital in order to be considered adequate. A bill was introduced during the 77th Legislative Session to facilitate the use of jail based competency programs and resolve some of the legal barriers. It did not pass. There is also concern about whether the jail would be able to provide an appropriate space that would accommodate the amount of the programming necessary to meet the “substantial equivalency” standard. At the present time the Clark County Jail is very crowded. The Washoe Detention Center does not have enough appropriate clients to make this cost effective. Twelve clients per year from this facility were deemed appropriate for such a program. Because of the low number of appropriate clients (averaging one client per month), it would not be cost effective to hire staff and implement a program. </p>
+			<p>When evaluating the efficacy of implementing a jail based competency program in Nevada, information from other states was reviewed. The evaluation included data from the initial project in San Bernardino, California, and programs in Arizona and Texas. Some of these programs required statutory changes as mentioned above. We also discussed a potential jail-based competency restoration program with the Competency Court Judge in Las Vegas and the Clark County Public Defenders’ Office. While the Division testified in support of legislation to allow such a program, the court and Public Defender’s Office in Clark County were not supportive at that time.</p>
+
+
+		</div>
+	</div>
+
+  	<div id="modalSampleModal" class="reveal-modal small">
+	  <h3>Expanded Description</h3>
+	  <p>Details here</p>
+	  <p><a href="#">-> Continue to Destination</a></p>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+

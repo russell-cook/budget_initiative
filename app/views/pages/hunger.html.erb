@@ -1,0 +1,378 @@
+    <script type="text/javascript">
+      function drawCostOfInitiativeChart() {
+        // Create and populate the data table.
+        var data = google.visualization.arrayToDataTable([
+          ['Fiscal Year', 'Base Funding', 'Enhanced Funding'],
+          ['FY 2014',  5750000,      2300000],
+          ['FY 2015',  5750000,      2300000],
+        ]);
+      
+        // Create and draw the visualization.
+        var ac = new google.visualization.ComboChart(document.getElementById('costOfInitiativeChart'));
+        ac.draw(data, {
+          title : 'Cost of Initiative',
+	  titleTextStyle: {fontSize: 24},
+          //width: 600,
+          //height: 400,
+	  legend: {position: 'bottom'},
+          vAxis: {title: "Funding", titleTextStyle: {fontSize: 18}, minValue: 0, maxValue: 1, format: '$#,###'},
+          hAxis: {title: "Fiscal Year"},
+           seriesType: "bars",
+          isStacked:true
+        });
+      }
+      
+		function drawAllCharts(){
+			drawCostOfInitiativeChart();
+			//drawBenchmarkChartA();
+			//drawBenchmarkChartB();
+			//drawBenchmarkChartC();
+			//drawPMInitiativeChartA();
+			//drawPMInitiativeChartB();
+			//drawPMAgencyChartA();
+			//drawPMAgencyChartB();
+			//drawPMAgencyChartC();
+			//drawPMAgencyChartD();
+			//drawCaseloadChartA();
+			//drawCaseloadChartB();
+		}
+
+    </script>
+  
+	<div class="row">
+		<div class="large-12 columns">
+			<ul class="breadcrumbs">
+			  <li>PPBB</li>
+			  <li><a href="list">Major Budget Initiatives</a></li>
+			  <li class="current"><a href="#">Hunger Reduction</a></li>
+			</ul>
+			<h2>Initiative: Hunger Reduction</h2>
+			<!--
+			<dl class="sub-nav">
+			  <dd class="active"><a href="#">Overview</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Description/Justification</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Funding Details</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Statewide Objectives/Benchmarks Advanced</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Performance Measures</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Population/Caseload</a></dd>
+			</dl>
+			-->
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-7 columns">
+			<h4>Description (Summary)</h4>
+			<p>DHHS is proposing an investment of an additional $2.3 million annually to reduce hunger in Nevada.  This program will provide additional subgrants to the network of community providers with the goal of over 90% of allocated funds used directly to feed needy Nevadans and to educate Nevadan’s regarding healthy eating habits.
+			<!--<br><a href="#">Expanded Description >></a>--></p>
+
+			<!--<h4>Justification (Summary)</h4>
+			<p>The ELL population has not previously received dedicated state education funds, yet over 68,000 of the state’s 445,000 students, or almost one out of every six students, is an ELL student.  Current and former ELL students comprise nearly one of every three Nevada students.  However, data suggests that students who successfully transition from being an ELL student to a former ELL student (former ELL students are those who have passed the English proficiency examination), within the expected timeframe (usually four to six years) perform better on assessments than the general student population.  Students within two years of exit perform 4.1% higher on the Math CRT and 1.8% higher on the Language Arts CRT.  
+			<br><a href="#">Expanded Justification >></a></p>-->
+		</div>
+		<div class="large-5 columns">
+			<div class="panel">
+				<!--<center><h4>Cost of Initiative</h4></center>-->
+				<div id="costOfInitiativeChart" style="width: 100%; height: 20em"></div>
+				<br>
+				<p>$2.3 million in Enhanced Funding (Tobacco funds) for each year of the upcoming biennium.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="section-container auto" data-section>
+
+		  <section class="active">
+		    <p class="title" data-section-title><a href="#panel2" onclick="initTimeout()">Funding Summary</a></p>
+		    <div class="content" data-section-content style="min-height: 20em">
+
+	    		<div class="row">
+	    			<div class="large-4 columns">
+						<h5>Lead Agency:</h5>
+	    			</div>
+	    			<div class="large-8 columns" style="text-align: right">
+						<!--<h5><a href="#">Funding Details >></a></h5>-->
+					</div>
+	    		</div>
+
+		    	<div class="row">
+		    		<div class="large-5 columns">
+						<ul class="no-bullet">
+							<li>
+								<ul>
+									<li><h6><a href="#">DHHS - Welfare Division</a></h6></li>
+								</ul>
+							</li>
+						</ul>
+						<h5>Secondary Agencies:</h5>
+						<ul class="no-bullet">
+							<li>
+								<ul>
+									<li><h6><a href="#">Dept of Education</a></h6></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><h6><a href="#">Dept of Agriculture</a></h6></li>
+								</ul>
+							</li>
+						</ul>
+						<h5>Cost Analysis (Summary)</h5>
+						<p>This Initiative requires $2.3 million in Tobacco funds per year ($4.6 million in total) during the upcoming biennium.  This is a 40% increase in direct funding provided by the State, as current funding (provided using a combination of state and federal funds) is approx. $5.75 million annually. There is currently no ability to further leverage Federal funds through this investment.  The State can leverage private funding sources with approximately a 50% match to additional state funds, or $1.15 million per fiscal year.</p>
+				    </div>
+
+				    <div class="large-7 columns">
+						<table>
+						  <thead>
+						    <tr>
+						      <th>Decision Unit</th>
+						      <th>Agency</th>
+						      <th>Budget Account</th>
+						      <th>FY14</th>
+						      <th>FY15</th>
+						      <th>Biennium</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td>E-225</td>
+						      <td>DHHS - Welfare</td>
+						      <td>2000</td>
+						      <td>$300,000</td>
+						      <td>$300,000</td>
+						      <td>$600,000</td>
+						    </tr>
+						    <tr>
+						      <td>E-227</td>
+						      <td>Department of Education</td>
+						      <td>3100</td>
+						      <td>$1,000,000</td>
+						      <td>$1,000,000</td>
+						      <td>$2,000,000</td>
+						    </tr>
+						    <tr>
+						      <td>E-230</td>
+						      <td>Department of Agriculture</td>
+						      <td>4000</td>
+						      <td>$1,000,000</td>
+						      <td>$1,000,000</td>
+						      <td>$2,000,000</td>
+						    </tr>
+						    <tr style="background-color:#dddddd">
+						      <td></td>
+						      <td></td>
+						      <td><b>Total:</b></td>
+						      <td><b>$2,300,000</b></td>
+						      <td><b>$2,300,000</b></td>
+						      <td><b>$4,600,000</b></td>
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+		    </div>
+		  </section>
+
+		  <section>
+		    <p class="title" data-section-title><a href="#panel3" onclick="initTimeout()">Objectives/Benchmarks Advanced</a></p>
+		    <div class="content" data-section-content style="min-height: 20em">
+		    	<div class="panel callout radius" style="height: 5em">
+					<center><h5><i><br>No data available at this time</i></h5></center>
+				</div>
+			</div>
+		  </section>
+
+		  <section>
+		    <p class="title" data-section-title><a href="#panel4" onclick="initTimeout()">Performance Measures - Initiative</a></p>
+			    <div class="content" data-section-content style="min-height: 20em">
+		    	<div class="panel callout radius" style="height: 5em">
+					<center><h5><i><br>No data available at this time</i></h5></center>
+				</div>
+				</div>
+		  </section>
+
+
+		  <section>
+		    <p class="title" data-section-title><a href="#panel5" onclick="initTimeout()">Performance Measures - Agency</a></p>
+
+			    <div class="content" data-section-content style="min-height: 20em">
+		    	<div class="panel callout radius" style="height: 5em">
+					<center><h5><i><br>No data available at this time</i></h5></center>
+				</div>
+		    	</div>
+		  </section>
+
+		</div>
+	</div>
+
+  	<div id="modalDecUnitA" class="reveal-modal large">
+
+	  	<center><h4>Initiative: Lake's Crossing</h4>
+	  	<h5>Budget Account: 3645</h5>
+	  	<h5>Dec Unit: E-225</h5>
+		<table>
+		  <thead>
+		  	<tr>
+			    <th>Cat</td>
+			    <th>GL</td>
+			    <th>Description</td>
+			    <th>Year 1</td>
+			    <th>Year 2</td>
+			    <th>Schedule</td>
+		    </tr>
+		  </thead>
+		  <tr>
+		    <td>01</td>
+		    <td>5100</td>
+		    <td>SALARIES</td>
+		    <td align="right">$732,083.00</td>
+		    <td align="right">$1,006,812.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5200</td>
+		    <td>WORKERS COMPENSATION</td>
+		    <td align="right">$16,622.00</td>
+		    <td align="right">$20,667.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5300</td>
+		    <td>RETIREMENT</td>
+		    <td align="right">$188,511.00</td>
+		    <td align="right">$259,254.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5400</td>
+		    <td>PERSONNEL ASSESSMENT</td>
+		    <td align="right">$3,897.00</td>
+		    <td align="right">$5,222.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5500</td>
+		    <td>GROUP INSURANCE</td>
+		    <td align="right">$123,900.00</td>
+		    <td align="right">$166,880.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5700</td>
+		    <td>PAYROLL ASSESSMENT</td>
+		    <td align="right">$1,174.00</td>
+		    <td align="right">$1,608.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5750</td>
+		    <td>RETIRED EMPLOYEES GROUP INSURANCE</td>
+		    <td align="right">$17,792.00</td>
+		    <td align="right">$27,183.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5800</td>
+		    <td>UNEMPLOYMENT COMPENSATION</td>
+		    <td align="right">$1,472.00</td>
+		    <td align="right">$1,203.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5840</td>
+		    <td>MEDICARE</td>
+		    <td align="right">$10,616.00</td>
+		    <td align="right">$14,601.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7050</td>
+		    <td>EMPLOYEE BOND INSURANCE</td>
+		    <td align="right">$54.00</td>
+		    <td align="right">$54.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7054</td>
+		    <td>AG TORT CLAIM ASSESSMENT</td>
+		    <td align="right">$2,408.00</td>
+		    <td align="right">$2,408.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7060</td>
+		    <td>CONTRACTS</td>
+		    <td align="right">$323,664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>VENDOR SERVICES</td>
+		  </tr>
+		  <tr>
+		    <td>05</td>
+		    <td>8270</td>
+		    <td>SPECIAL EQUIPMENT &gt;$5,000</td>
+		    <td align="right">$51,456.00</td>
+		    <td align="right">$34,020.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7554</td>
+		    <td>EITS INFRASTRUCTURE ASSESSMENT</td>
+		    <td align="right">$2,586.00</td>
+		    <td align="right">$2,086.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7556</td>
+		    <td>EITS SECURITY ASSESSMENT</td>
+		    <td align="right">$2,031.00</td>
+		    <td align="right">$1,566.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7771</td>
+		    <td>COMPUTER SOFTWARE &lt;$5,000 - A</td>
+		    <td align="right">$664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>8371</td>
+		    <td>COMPUTER HARDWARE &lt;$5,000 - A</td>
+		    <td align="right">$2,400.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		    <tr style="background-color:#dddddd">
+		      <td></td>
+		      <td></td>
+		      <td><strong>Total:</strong></td>
+		      <td><strong>$1,481,330</strong></td>
+		      <td><strong>$1,543,564</strong></td>
+		      <td></td>
+		    </tr>
+		</table>
+		</center>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+

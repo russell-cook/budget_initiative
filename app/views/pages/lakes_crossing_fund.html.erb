@@ -1,0 +1,1101 @@
+    <script type="text/javascript">
+		function drawFundingCatChart() {
+			var pieData = google.visualization.arrayToDataTable([
+			  ['Category', 'Amount'],
+			  ['Personnel',     2599497],
+			  ['Operations',      328588],
+			  ['Equipment',      88540],
+			  ['Other',      8269]
+			]);
+
+			var options = {
+			  //title: 'Expense Categories as a Share of Total Initiative Cost',
+			  legend: {position: 'none'},
+			  chartArea: {width: '80%', height: '80%'},
+			  pieSliceText: 'label'
+			};
+
+			var chart = new google.visualization.PieChart(document.getElementById('fundingCatChart'));
+			chart.draw(pieData, options);
+		}
+
+		function drawCostOfInitiativeChart() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'New Funding'],
+			  ['FY14',  1481330],
+			  ['FY15',  1543564]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('costOfInitiativeChart'));
+			ac.draw(data, {
+				title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Funding", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawBenchmarkChartA() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  3.4,    3.8],
+		      ['2009',  3.4,    3.6],
+		      ['2010',  3.5,    4],
+		      ['2011',  3.5,    3.8],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				vAxis: {title: "Days", minValue: 0}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartA'));
+		    chart.draw(data, options);
+		}
+
+		function drawBenchmarkChartB() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  0,	0.23],
+		      ['2009',  null,	0.18],
+		      ['2010',  null,	0.27],
+		      ['2011',  null,	0.19],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+		      	//because of error when all values in a series are null, set the first values in the series (in the data array) to 0 and hide it with pointSize: 0
+		      	series: {0:{pointSize: 0}},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartB'));
+		    chart.draw(data, options);
+		}
+
+      	function drawPMInitiativeChartA() {
+			// Create and populate the data table.
+			var data = new google.visualization.DataTable();
+			data.addColumn('date', 'Date');
+			data.addColumn('number', 'Number Waiting');
+			data.addRows([
+				[new Date(2012,4,10),5],
+				[new Date(2012,4,23),6],
+				[new Date(2012,5,17),9],
+				[new Date(2012,6,11),7],
+				[new Date(2012,6,29),5],
+				[new Date(2012,7,30),8],
+				[new Date(2012,8,13),8],
+				[new Date(2012,8,24),7],
+				[new Date(2012,9,7),5],
+				[new Date(2012,9,26),8],
+				[new Date(2012,10,18),8],
+				[new Date(2012,11,1),6],
+				[new Date(2012,12,20),12],
+				[new Date(2013,1,9),13],
+				[new Date(2013,1,10),14],
+				[new Date(2013,1,17),15],
+				[new Date(2013,1,31),16],
+				[new Date(2013,2,25),18],
+				[new Date(2013,3,8),18],
+				[new Date(2013,3,19),23],
+				[new Date(2013,3,25),21],
+				[new Date(2013,4,19),26],
+				[new Date(2013,4,29),34],
+				[new Date(2013,5,7),31],
+				[new Date(2013,5,20),32],
+				[new Date(2013,6,10),36],
+				[new Date(2013,6,20),32],
+				[new Date(2013,7,10),36]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.LineChart(document.getElementById('PMInitiativeChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Number Waiting", minValue: 0},
+				//hAxis: {title: "Date"},
+				pointSize: 3
+				//seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMInitiativeChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Wait Time (days)'],
+			  ['FY10',  13],
+			  ['FY11',  11],
+			  ['FY12',  14],
+			  ['FY13',  18]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMInitiativeChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Length of Stay (days)'],
+			  ['FY08',  127],
+			  ['FY09',  68],
+			  ['FY10',  76],
+			  ['FY11',  102],
+			  ['FY12',  81],
+			  ['FY13',  98],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartB() {
+		    var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Percent Discharged Competant to Stand Trial'],
+			  ['FY08',  null],
+			  ['FY09',  .84],
+			  ['FY10',  .87],
+			  ['FY11',  .81],
+			  ['FY12',  .74],
+			  ['FY13',  .71],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('PMAgencyChartB'));
+		    chart.draw(data, options);
+		}
+
+		function drawPMAgencyChartC() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY08',  0],
+			  ['FY09',  0],
+			  ['FY10',  0],
+			  ['FY11',  0],
+			  ['FY12',  0],
+			  ['FY13',  0],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartC'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartD() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Cost Per Client Per Day'],
+			  ['FY10',  513],
+			  ['FY11',  424],
+			  ['FY12',  420],
+			  ['FY13',  378],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartD'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Cost", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY07',  58],
+			  ['FY08',  57],
+			  ['FY09',  49],
+			  ['FY10',  48],
+			  ['FY11',  60],
+			  ['FY12',  55],
+			  ['FY13',  60],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Clark Co', 'Washoe Co', 'Rural'],
+			  ['FY09',  .63,      .18,	.20],
+			  ['FY10',  .73,      .19,	.08],
+			  ['FY11',  .65,      .21,	.14],
+			  ['FY12',  .68,      .20,	.12],
+			  ['FY13',  .67,      .23,	.10]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 24},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars",
+				isStacked:true
+			});
+		}
+
+		function drawAllCharts(){
+			drawCostOfInitiativeChart();
+			//drawBenchmarkChartA();
+			//drawBenchmarkChartB();
+			//drawPMInitiativeChartA();
+			//drawPMInitiativeChartB();
+			//drawPMAgencyChartA();
+			//drawPMAgencyChartB();
+			//drawPMAgencyChartC();
+			//drawPMAgencyChartD();
+			//drawCaseloadChartA();
+			//drawCaseloadChartB();
+			drawFundingCatChart();
+		}
+
+    </script>
+  
+	<div class="row">
+		<div class="large-12 columns">
+			<ul class="breadcrumbs">
+			  <li>PPBB</li>
+			  <li><a href="list">Major Budget Initiatives</a></li>
+			  <li class="current"><a href="#">Lake's Crossing</a></li>
+			</ul>
+			<h2>Initiative: Lake's Crossing</h2>
+			<dl class="sub-nav">
+			  <!--<dt><strong>View:</strong></dt>-->
+			  <dd><a href="lakes_crossing">Overview</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_desc">Description/Justification</a></dd>
+			  <dd>|</dd>
+			  <dd class="active"><a href="lakes_crossing_fund">Funding Details</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_obj">Statewide Objectives/Benchmarks Advanced</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pm">Performance Measures</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pop">Population/Caseload</a></dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel"><center><h3 style="margin: 0em">Agencies Funded by Initiative</h3></center></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-5 columns">
+			<h5>Lead Agency:</h5>
+			<ul class="no-bullet">
+				<li>
+					<ul>
+						<li><h6><a href="#">DHHS - Division of Public and Behavioral Health</a></h6></li>
+					</ul>
+				</li>
+			</ul>
+			<h5>Secondary Agencies:</h5>
+			<ul class="no-bullet">
+				<li>
+					<ul>
+						<li><h6>None</h6></li>
+					</ul>
+				</li>
+			</ul>
+	    </div>
+
+	    <div class="large-7 columns">
+
+			<table>
+			  <thead>
+			    <tr>
+			      <th>Decision Unit</th>
+			      <th>Agency</th>
+			      <th>Budget Account</th>
+			      <th>FY14</th>
+			      <th>FY15</th>
+			      <th>Biennium</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td><a href="#" data-reveal-id="modalDecUnitA">E-225</a></td>
+			      <td>DHHS - DPBH</td>
+			      <td>3645</td>
+			      <td>$1,481,330</td>
+			      <td>$1,543,564</td>
+			      <td>$3,024,894</td>
+			    </tr>
+			    <tr style="background-color:#dddddd">
+			      <td></td>
+			      <td></td>
+			      <td><b>Total:</b></td>
+			      <td>$1,481,330</td>
+			      <td>$1,543,564</td>
+			      <td><b>$3,024,894</b></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel"><center><h3 style="margin: 0em">Expense Categories</h3></center></div>
+		</div>
+	</div>
+
+	<div class="row">
+	    <div class="large-7 columns">
+
+			<table>
+			  <thead>
+			    <tr>
+			      <th>Category</th>
+			      <th>FY14</th>
+			      <th>FY15</th>
+			      <th>Biennium</th>
+			      <th>Share of Total Initiative Cost</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr style="background-color: #3366cc">
+			      <td style="color: #fff">Personnel</td>
+			      <td style="color: #fff" align="right">$1,096,067</td>
+			      <td style="color: #fff" align="right">$1,503,430</td>
+			      <td style="color: #fff" align="right">$2,599,497</td>
+			      <td style="color: #fff" align="right">85.9%</td>
+			    </tr>
+			    <tr style="background-color: #dc3912">
+			      <td style="color: #fff">Operations</td>
+			      <td style="color: #fff" align="right">$326,126</td>
+			      <td style="color: #fff" align="right">$2,462</td>
+			      <td style="color: #fff" align="right">$328,588</td>
+			      <td style="color: #fff" align="right">10.9%</td>
+			    </tr>
+			    <tr style="background-color: #ff9900">
+			      <td align="right">Equipment</td>
+			      <td align="right">$54,520</td>
+			      <td align="right">$34,020</td>
+			      <td align="right">$88,540</td>
+			      <td align="right">2.9%</td>
+			    </tr>
+			    <tr style="background-color: #109618">
+			      <td style="color: #fff">Other</td>
+			      <td style="color: #fff" align="right">$4,617</td>
+			      <td style="color: #fff" align="right">$3,652</td>
+			      <td style="color: #fff" align="right">$8,269</td>
+			      <td style="color: #fff" align="right">0.3%</td>
+			    </tr>
+			    <tr style="background-color:#dddddd">
+			      <td><strong>Total:</strong></td>
+			      <td align="right"><strong>$1,481,330</strong></td>
+			      <td align="right"><strong>$1,543,564</strong></td>
+			      <td align="right"><strong>$3,024,894</strong></td>
+			      <td align="right"><strong>100%</strong></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+
+		<div class="large-5 columns">
+			<div class="panel">
+				<center><h5>Expense Categories as a Share of Total Initiative Cost</h5></center>
+			<div id="fundingCatChart" style="width: 100%; height: 20em"></div>
+			</div>
+	    </div>
+
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+
+			<div class="panel"><center><h3 style="margin: 0em">Cost Analysis</h3></center></div>
+
+			<div class="panel" style="width: 100%; max-width: 30em; float: right; margin-left: 1em">
+				<div id="costOfInitiativeChart" style="width: 100%; height: 20em"></div>
+				<br>
+				<h6>This is a new program requiring just over $3.0 million in new funding during the 2014-15 biennium.</h6>
+			</div>
+
+			<p>This initiative requires just over $3.0 million in Tobacco funding during the 2014-15 biennium. The use of General Funds was also considered as an alternative funding approach. </p>
+			<p>Twenty new staff would be needed to support this expansion (<a href="#table_a">Table A</a>). Lake’s Crossing has already begun the process to hire this staff. A Board Certified Forensic Psychologist started September 1, 2013. A nurse has also been hired. These individuals are in other vacant position control numbers until Lake’s Crossings positions become available October 1. All position classifications have recruitment lists and interviews are being scheduled. It is anticipated that the psychiatrist position will present challenges in terms of hiring, but recruitment has begun.</p>
+		</div>
+
+
+		<div class="large-12 columns">
+
+			<div class="panel"><center><h3 style="margin: 0em">Supplemental Funding Data</h3></center></div>
+
+			<a id="table_a"></a>
+<!-- Staff table provided by DPBH, could not reconcile $ amounts
+			<div class="panel">
+			<center><h5>Table A: Staff Needed for Expansion</h5></center>
+				<table>
+					<thead>
+					  <tr>
+					    <th>Title</td>
+					    <th>Class Code</td>
+					    <th>Grade</td>
+					    <th>Step</td>
+					    <th># Positions</td>
+					    <th>Hourly Rate</td>
+					    <th>Annual Salary</td>
+					    <th>Paid Benefits</td>
+					    <th>Total Annual Compensation</td>
+					  </tr>
+					</thead>
+				  <tr>
+				    <td colspan="9"><strong>PSYCHOLOGY</strong></td>
+				  </tr>
+				  <tr>
+				    <td><dd>Licnesed Psychologist I</td>
+				    <td align="right">10.17</td>
+				    <td align="right">44</td>
+				    <td align="right">5</td>
+				    <td align="right">1</td>
+				    <td align="right">$38.86</td>
+				    <td align="right">$81,139.68</td>
+				    <td align="right">$31,798.64</td>
+				    <td align="right">$112,938.32</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>PSYCHIATRY</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Senior Psychiatrist    (Full-Time)</td>
+				    <td>Unclassified</td>
+				    <td></td>
+				    <td></td>
+				    <td align="right">1</td>
+				    <td align="right">$77.72</td>
+				    <td align="right">$162,279.36</td>
+				    <td align="right">$63,597.28</td>
+				    <td align="right">$225,876.64</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>MEDICAL RECORDS</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Administrative Asst. II</td>
+				    <td align="right">2.212</td>
+				    <td align="right">25</td>
+				    <td align="right">1</td>
+				    <td align="right">1</td>
+				    <td align="right">$14.46</td>
+				    <td align="right">$30,192.48</td>
+				    <td align="right">$11,832.43</td>
+				    <td align="right">$4,224.91</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>THERAPY</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Activities Therapy Techinician II</td>
+				    <td align="right">10.673</td>
+				    <td align="right">27</td>
+				    <td align="right">1</td>
+				    <td align="right">2</td>
+				    <td align="right">$31.30</td>
+				    <td align="right">$65,354.40</td>
+				    <td align="right">$25,612.39</td>
+				    <td align="right">$90,966.79</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>SOCIAL SERVICES</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Clinical Social Caseworker II</td>
+				    <td align="right">10.144</td>
+				    <td align="right">37</td>
+				    <td align="right">1</td>
+				    <td align="right">1</td>
+				    <td align="right">$23.80</td>
+				    <td align="right">$49,694.40</td>
+				    <td align="right">$19,475.24</td>
+				    <td align="right">$6,916,964.00</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>NURSING</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Psychiatric Nurse II</td>
+				    <td align="right">10.307</td>
+				    <td align="right">39</td>
+				    <td align="right">7</td>
+				    <td align="right">4</td>
+				    <td align="right">$135.64</td>
+				    <td align="right">$283,216.32</td>
+				    <td align="right">$110,992.48</td>
+				    <td align="right">$394,208.80</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>MAINTENANCE</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Custodial Worker I</td>
+				    <td align="right">9.634</td>
+				    <td align="right">21</td>
+				    <td align="right">1</td>
+				    <td align="right">1</td>
+				    <td align="right">$12.41</td>
+				    <td align="right">$25,912.08</td>
+				    <td align="right">$10,154.94</td>
+				    <td align="right">$36,067.02</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>SECURITY</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Forensic Specialist III</td>
+				    <td align="right">13.322</td>
+				    <td align="right">32</td>
+				    <td align="right">1</td>
+				    <td align="right">9</td>
+				    <td align="right">$172.89</td>
+				    <td align="right">$360,994.32</td>
+				    <td align="right">$141,473.67</td>
+				    <td align="right">$502,467.99</td>
+				  </tr>
+				  <tr style="background-color:#dddddd">
+				    <td><strong>TOTAL:</strong></td>
+				    <td></td>
+				    <td></td>
+				    <td></td>
+				    <td align="right"><strong>20</strong></td>
+				    <td></td>
+				    <td></td>
+				    <td></td>
+				    <td align="right"><strong>$1,473,720.11</strong></td>
+				  </tr>
+				</table>
+			</div>
+-->
+
+			<div class="panel">
+			<center><h5>Table A: Staff Needed for Expansion</h5></center>
+				<table>
+					<thead>
+					  <tr>
+					    <th>Pos Desc</td>
+					    <th>Gd-Step</td>
+					    <th>St Date</td>
+					    <th>End Date</td>
+					    <th>Salary YR1</td>
+					    <th>Benefits YR1</td>
+					    <th>Salary YR2</td>
+					    <th>Benefits YR2</td>
+					    <th>Biennium Total</td>
+					  </tr>
+					</thead>
+				  <tr>
+				    <td>SR PSYCHIATRIST (RANGE C) (EA)</td>
+				    <td>55-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$113,253</td>
+				    <td align="right">$41,754</td>
+				    <td align="right">$151,004</td>
+				    <td align="right">$54,955</td>
+				    <td align="right">$360,966</td>
+				  </tr>
+				  <tr>
+				    <td>LICENSED PSYCHOLOGIST 1</td>
+				    <td>44-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$51,747</td>
+				    <td align="right">$23,298</td>
+				    <td align="right">$71,711</td>
+				    <td align="right">$31,508</td>
+				    <td align="right">$178,264</td>
+				  </tr>
+				  <tr>
+				    <td>PSYCHIATRIC NURSE 2</td>
+				    <td>39-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$41,267</td>
+				    <td align="right">$19,834</td>
+				    <td align="right">$57,138</td>
+				    <td align="right">$27,009</td>
+				    <td align="right">$145,248</td>
+				  </tr>
+				  <tr>
+				    <td>PSYCHIATRIC NURSE 2</td>
+				    <td>39-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$41,267</td>
+				    <td align="right">$19,834</td>
+				    <td align="right">$57,138</td>
+				    <td align="right">$27,009</td>
+				    <td align="right">$145,248</td>
+				  </tr>
+				  <tr>
+				    <td>PSYCHIATRIC NURSE 2</td>
+				    <td>39-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$41,267</td>
+				    <td align="right">$19,834</td>
+				    <td align="right">$57,138</td>
+				    <td align="right">$27,009</td>
+				    <td align="right">$145,248</td>
+				  </tr>
+				  <tr>
+				    <td>PSYCHIATRIC NURSE 2</td>
+				    <td>39-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$41,267</td>
+				    <td align="right">$19,834</td>
+				    <td align="right">$57,138</td>
+				    <td align="right">$27,009</td>
+				    <td align="right">$145,248</td>
+				  </tr>
+				  <tr>
+				    <td>CLINICAL SOCIAL WORKER 2</td>
+				    <td>37-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$37,751</td>
+				    <td align="right">$18,671</td>
+				    <td align="right">$52,287</td>
+				    <td align="right">$25,515</td>
+				    <td align="right">$134,224</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>FORENSIC SPECIALIST 3</td>
+				    <td>32-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$30,361</td>
+				    <td align="right">$16,229</td>
+				    <td align="right">$41,969</td>
+				    <td align="right">$22,329</td>
+				    <td align="right">$110,888</td>
+				  </tr>
+				  <tr>
+				    <td>ACTIVITIES THERAPY TECH    2</td>
+				    <td>27-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$24,568</td>
+				    <td align="right">$14,316</td>
+				    <td align="right">$33,896</td>
+				    <td align="right">$19,756</td>
+				    <td align="right">$92,536</td>
+				  </tr>
+				  <tr>
+				    <td>ACTIVITIES THERAPY TECH    2</td>
+				    <td>27-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$24,568</td>
+				    <td align="right">$14,316</td>
+				    <td align="right">$33,896</td>
+				    <td align="right">$19,756</td>
+				    <td align="right">$92,536</td>
+				  </tr>
+				  <tr>
+				    <td>ADMIN ASSISTANT 2</td>
+				    <td>25-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$22,624</td>
+				    <td align="right">$13,673</td>
+				    <td align="right">$31,200</td>
+				    <td align="right">$18,849</td>
+				    <td align="right">$86,346</td>
+				  </tr>
+				  <tr>
+				    <td>CUSTODIAL WORKER 1</td>
+				    <td>21-5</td>
+				    <td>10-2013</td>
+				    <td>6-2015</td>
+				    <td align="right">$19,255</td>
+				    <td align="right">$12,559</td>
+				    <td align="right">$26,545</td>
+				    <td align="right">$17,282</td>
+				    <td align="right">$75,641</td>
+				  </tr>
+				  <tr style="background-color:#dddddd">
+				    <td></td>
+				    <td></td>
+				    <td></td>
+				    <td><strong>TOTAL:</strong></td>
+				    <td align="right"><strong>$732,083</strong></td>
+				    <td align="right"><strong>$363,984</strong></td>
+				    <td align="right"><strong>$1,006,812</strong></td>
+				    <td align="right"><strong>$496,618</strong></td>
+				    <td align="right"><strong>$2,599,497</strong></td>
+				  </tr>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+  	<div id="modalDecUnitA" class="reveal-modal large">
+
+	  	<center><h4>Initiative: Lake's Crossing</h4>
+	  	<h5>Budget Account: 3645</h5>
+	  	<h5>Dec Unit: E-225</h5>
+		<table>
+		  <thead>
+		  	<tr>
+			    <th>Cat</td>
+			    <th>GL</td>
+			    <th>Description</td>
+			    <th>Year 1</td>
+			    <th>Year 2</td>
+			    <th>Schedule</td>
+		    </tr>
+		  </thead>
+		  <tr>
+		    <td>01</td>
+		    <td>5100</td>
+		    <td>SALARIES</td>
+		    <td align="right">$732,083.00</td>
+		    <td align="right">$1,006,812.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5200</td>
+		    <td>WORKERS COMPENSATION</td>
+		    <td align="right">$16,622.00</td>
+		    <td align="right">$20,667.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5300</td>
+		    <td>RETIREMENT</td>
+		    <td align="right">$188,511.00</td>
+		    <td align="right">$259,254.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5400</td>
+		    <td>PERSONNEL ASSESSMENT</td>
+		    <td align="right">$3,897.00</td>
+		    <td align="right">$5,222.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5500</td>
+		    <td>GROUP INSURANCE</td>
+		    <td align="right">$123,900.00</td>
+		    <td align="right">$166,880.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5700</td>
+		    <td>PAYROLL ASSESSMENT</td>
+		    <td align="right">$1,174.00</td>
+		    <td align="right">$1,608.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5750</td>
+		    <td>RETIRED EMPLOYEES GROUP INSURANCE</td>
+		    <td align="right">$17,792.00</td>
+		    <td align="right">$27,183.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5800</td>
+		    <td>UNEMPLOYMENT COMPENSATION</td>
+		    <td align="right">$1,472.00</td>
+		    <td align="right">$1,203.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5840</td>
+		    <td>MEDICARE</td>
+		    <td align="right">$10,616.00</td>
+		    <td align="right">$14,601.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7050</td>
+		    <td>EMPLOYEE BOND INSURANCE</td>
+		    <td align="right">$54.00</td>
+		    <td align="right">$54.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7054</td>
+		    <td>AG TORT CLAIM ASSESSMENT</td>
+		    <td align="right">$2,408.00</td>
+		    <td align="right">$2,408.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7060</td>
+		    <td>CONTRACTS</td>
+		    <td align="right">$323,664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>VENDOR SERVICES</td>
+		  </tr>
+		  <tr>
+		    <td>05</td>
+		    <td>8270</td>
+		    <td>SPECIAL EQUIPMENT &gt;$5,000</td>
+		    <td align="right">$51,456.00</td>
+		    <td align="right">$34,020.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7554</td>
+		    <td>EITS INFRASTRUCTURE ASSESSMENT</td>
+		    <td align="right">$2,586.00</td>
+		    <td align="right">$2,086.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7556</td>
+		    <td>EITS SECURITY ASSESSMENT</td>
+		    <td align="right">$2,031.00</td>
+		    <td align="right">$1,566.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7771</td>
+		    <td>COMPUTER SOFTWARE &lt;$5,000 - A</td>
+		    <td align="right">$664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>8371</td>
+		    <td>COMPUTER HARDWARE &lt;$5,000 - A</td>
+		    <td align="right">$2,400.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		    <tr style="background-color:#dddddd">
+		      <td></td>
+		      <td></td>
+		      <td><strong>Total:</strong></td>
+		      <td><strong>$1,481,330</strong></td>
+		      <td><strong>$1,543,564</strong></td>
+		      <td></td>
+		    </tr>
+		</table>
+		</center>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
+
+  	<div id="modalSampleModal" class="reveal-modal small">
+	  <h3>Expanded Description</h3>
+	  <p>Details here</p>
+	  <p><a href="#">-> Continue to Destination</a></p>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
+

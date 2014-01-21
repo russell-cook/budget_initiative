@@ -1,0 +1,478 @@
+    <script type="text/javascript">
+		function drawPieChart() {
+			var pieData = google.visualization.arrayToDataTable([
+			  ['Task', 'Percent'],
+			  ['Direct Initiative Funding',     95],
+			  ['New Metrics',      5]
+			]);
+
+			var options = {
+			  title: 'Cost of New Metrics',
+			  legend: {position: 'none'},
+			};
+
+			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			chart.draw(pieData, options);
+		}
+
+		function drawCostOfInitiativeChart() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'New Funding'],
+			  ['FY14',  1481330],
+			  ['FY15',  1543564]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('costOfInitiativeChart'));
+			ac.draw(data, {
+				title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Funding", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawBenchmarkChartA() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  3.4,    3.8],
+		      ['2009',  3.4,    3.6],
+		      ['2010',  3.5,    4],
+		      ['2011',  3.5,    3.8],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				vAxis: {title: "Days", minValue: 0}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartA'));
+		    chart.draw(data, options);
+		}
+
+		function drawBenchmarkChartB() {
+		    var data = google.visualization.arrayToDataTable([
+		      ['Year', 'National', 'State'],
+		      ['2008',  0,	0.23],
+		      ['2009',  null,	0.18],
+		      ['2010',  null,	0.27],
+		      ['2011',  null,	0.19],
+		      ['2012', 	null, 	null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+		      	//because of error when all values in a series are null, set the first values in the series (in the data array) to 0 and hide it with pointSize: 0
+		      	series: {0:{pointSize: 0}},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('benchmarkChartB'));
+		    chart.draw(data, options);
+		}
+
+      	function drawPMInitiativeChartA() {
+			// Create and populate the data table.
+			var data = new google.visualization.DataTable();
+			data.addColumn('date', 'Date');
+			data.addColumn('number', 'Number Waiting');
+			data.addRows([
+				[new Date(2012,4,10),5],
+				[new Date(2012,4,23),6],
+				[new Date(2012,5,17),9],
+				[new Date(2012,6,11),7],
+				[new Date(2012,6,29),5],
+				[new Date(2012,7,30),8],
+				[new Date(2012,8,13),8],
+				[new Date(2012,8,24),7],
+				[new Date(2012,9,7),5],
+				[new Date(2012,9,26),8],
+				[new Date(2012,10,18),8],
+				[new Date(2012,11,1),6],
+				[new Date(2012,12,20),12],
+				[new Date(2013,1,9),13],
+				[new Date(2013,1,10),14],
+				[new Date(2013,1,17),15],
+				[new Date(2013,1,31),16],
+				[new Date(2013,2,25),18],
+				[new Date(2013,3,8),18],
+				[new Date(2013,3,19),23],
+				[new Date(2013,3,25),21],
+				[new Date(2013,4,19),26],
+				[new Date(2013,4,29),34],
+				[new Date(2013,5,7),31],
+				[new Date(2013,5,20),32],
+				[new Date(2013,6,10),36],
+				[new Date(2013,6,20),32],
+				[new Date(2013,7,10),36]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.LineChart(document.getElementById('PMInitiativeChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Number Waiting", minValue: 0},
+				//hAxis: {title: "Date"},
+				pointSize: 3
+				//seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMInitiativeChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Wait Time (days)'],
+			  ['FY10',  13],
+			  ['FY11',  11],
+			  ['FY12',  14],
+			  ['FY13',  18]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMInitiativeChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Length of Stay (days)'],
+			  ['FY08',  127],
+			  ['FY09',  68],
+			  ['FY10',  76],
+			  ['FY11',  102],
+			  ['FY12',  81],
+			  ['FY13',  98],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Days", minValue: 0},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartB() {
+		    var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Percent Discharged Competant to Stand Trial'],
+			  ['FY08',  null],
+			  ['FY09',  .84],
+			  ['FY10',  .87],
+			  ['FY11',  .81],
+			  ['FY12',  .74],
+			  ['FY13',  .71],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+		    ]);
+
+		    var options = {
+		      	//title: 'Company Performance',
+		      	pointSize: 3,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'}
+		    };
+
+		    var chart = new google.visualization.LineChart(document.getElementById('PMAgencyChartB'));
+		    chart.draw(data, options);
+		}
+
+		function drawPMAgencyChartC() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY08',  0],
+			  ['FY09',  0],
+			  ['FY10',  0],
+			  ['FY11',  0],
+			  ['FY12',  0],
+			  ['FY13',  0],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartC'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawPMAgencyChartD() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Average Cost Per Client Per Day'],
+			  ['FY10',  513],
+			  ['FY11',  424],
+			  ['FY12',  420],
+			  ['FY13',  378],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('PMAgencyChartD'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Cost", minValue: 0, format: '$#,###'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartA() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Rehospitalization of Conditional Release Clients'],
+			  ['FY07',  58],
+			  ['FY08',  57],
+			  ['FY09',  49],
+			  ['FY10',  48],
+			  ['FY11',  60],
+			  ['FY12',  55],
+			  ['FY13',  60],
+			  ['FY14',  null],
+			  ['FY15',  null],
+			  ['FY16',  null],
+			  ['FY17',  null]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartA'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 18},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Clients", minValue: 0, maxValue: 5},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars"
+				//isStacked:false
+			});
+		}
+
+		function drawCaseloadChartB() {
+			// Create and populate the data table.
+			var data = google.visualization.arrayToDataTable([
+			  ['Fiscal Year', 'Clark Co', 'Washoe Co', 'Rural'],
+			  ['FY09',  .63,      .18,	.20],
+			  ['FY10',  .73,      .19,	.08],
+			  ['FY11',  .65,      .21,	.14],
+			  ['FY12',  .68,      .20,	.12],
+			  ['FY13',  .67,      .23,	.10]
+			]);
+
+			// Create and draw the visualization.
+			var ac = new google.visualization.ComboChart(document.getElementById('caseloadChartB'));
+			ac.draw(data, {
+				//title : 'Cost of Initiative',
+				//titleTextStyle: {fontSize: 24},
+				//width: 600,
+				//height: 400,
+				legend: {position: 'bottom'},
+				vAxis: {title: "Percent", minValue: 0, maxValue: 1, format: '#,###.##%'},
+				hAxis: {title: "Fiscal Year"},
+				seriesType: "bars",
+				isStacked:true
+			});
+		}
+
+		function drawAllCharts(){
+			//drawCostOfInitiativeChart();
+			drawBenchmarkChartA();
+			drawBenchmarkChartB();
+			drawPMInitiativeChartA();
+			drawPMInitiativeChartB();
+			drawPMAgencyChartA();
+			drawPMAgencyChartB();
+			drawPMAgencyChartC();
+			drawPMAgencyChartD();
+			drawCaseloadChartA();
+			drawCaseloadChartB();
+			//drawPieChart();
+		}
+
+    </script>
+  
+	<div class="row">
+		<div class="large-12 columns">
+			<ul class="breadcrumbs">
+			  <li>PPBB</li>
+			  <li><a href="list">Major Budget Initiatives</a></li>
+			  <li class="current"><a href="#">Lake's Crossing</a></li>
+			</ul>
+			<h2>Initiative: Lake's Crossing</h2>
+			<dl class="sub-nav">
+			  <!--<dt><strong>View:</strong></dt>-->
+			  <dd><a href="lakes_crossing">Overview</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_desc">Description/Justification</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_fund">Funding Details</a></dd>
+			  <dd>|</dd>
+			  <dd class="active"><a href="lakes_crossing_obj">Statewide Objectives/Benchmarks Advanced</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pm">Performance Measures</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="lakes_crossing_pop">Population/Caseload</a></dd>
+			</dl>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+			<div class="panel radius">
+			<center><h3>Objective: <a href="#">Mental Health</a></h3></center>
+				<p><strong>Objective Description:</strong> Provide accessible and affordable mental health services to people of all ages.</p>
+				<p><strong>Related Core Function:</strong> <a href="#">Health Services</a></p>
+			</div>
+			<div class="row">
+				<div class="large-2 columns"></div>
+				<div class="large-10 columns">
+					<h5>Benchmark: Poor Mental Health</h5>
+					<p>Average number of days in the previous month that a person could not perform work or household tasks due to mental illness.</p>
+					<a href="#" data-reveal-id="modalBenchmarkDetailsA" class="tiny button">More Details</a>
+					<div id="benchmarkChartA" style="width: 100%; height: 20em"></div>
+					<p><i>NOTE: While this initiative ties closely to this Statewide Benchmark, the population served by Lakes Crossing and this incremental increase in the population is not sufficient to move this benchmark materially</i></p>
+				</div>
+			</div>
+
+			<div class="panel radius">
+			<center><h3>Objective: <a href="#">Reduce Repeat Criminal Activity</a></h3></center>
+				<p><strong>Objective Description:</strong></p>
+				<p><strong>Related Core Function:</strong> <a href="#">Public Safety</a></p>
+			</div>
+			<div class="row">
+				<div class="large-2 columns"></div>
+				<div class="large-10 columns">
+					<h5>Benchmark: Offender Revocation</h5>
+					<p>Percent of offenders returned/revoked within 36 months.</p>
+					<a href="#" data-reveal-id="modalBenchmarkDetailsB" class="tiny button">More Details</a>
+					<div id="benchmarkChartB" style="width: 100%; height: 20em"></div>
+					<p><i>NOTE: While this initiative ties closely to this Statewide Benchmark, the population served by Lakes Crossing and this incremental increase in the population is not sufficient to move this benchmark materially</i></p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+  	<div id="modalBenchmarkDetailsA" class="reveal-modal medium">
+	  <h3>Benchmark Details: Poor Mental Health</h3>
+		  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>What this Benchmark is Measuring?</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p>This benchmark measures the number of days in the previous month that an individual could not perform work or household tasks due to mental illness.</p>
+		  	</div>
+		  </div>
+		  <hr>
+	  	  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>Why this benchmark is an important measure of Government performance:</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p>Access to appropriate mental health services helps stabilize individuals, families, and communities.</p>
+		  	</div>
+		  </div>
+		  <hr>
+	  	  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>Data Source:</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p><a href="http://www.americashealthrankings.org/Rankings" target="_new">United Health Foundation, America's Health Rankings</a></p>
+		  		<p>Select Poor Mental Health Days under statistic.</p>
+		  	</div>
+		  </div>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
+  	<div id="modalBenchmarkDetailsB" class="reveal-modal medium">
+	  <h3>Benchmark Details: Reduce Repeat Criminal Activity</h3>
+		  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>What this Benchmark is Measuring?</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p>This benchmark measures the success of correctional efforts to reduce recidivism. For adults, Nevada Parole and Probation measures the percent of offenders revoked.</p>
+		  	</div>
+		  </div>
+		  <hr>
+	  	  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>Why this benchmark is an important measure of Government performance:</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p>This measures the effectiveness of efforts to improve the probability that offenders successfully re-enter society.<br><strong>Adults:</strong> Nevada Offender Tracking Information System (OTIS)<br><strong>Youth Parole:</strong> UNITY System</p>
+		  	</div>
+		  </div>
+		  <hr>
+	  	  <div class="row">
+		  	<div class="large-5 columns">
+		  		<p><Strong>Data Source:</strong></p>
+		  	</div>
+		  	<div class="large-7 columns">
+		  		<p><strong>Adults:</strong> Nevada Offender Tracking Information System - OTIS<br>
+		  		<strong>Youth Parole:</strong> UNITY System</p>
+		  	</div>
+		  </div>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
+
