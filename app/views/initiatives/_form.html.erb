@@ -12,6 +12,13 @@
         </div>
       <% end %>
 
+      <div class="row">
+        <div class="large-12 columns">
+          <div class="button tiny alert">
+            <%= f.submit 'Save' %>
+          </div>
+        </div>
+      </div>
   <div class="large-3 columns">
     <label for="title-label" class="right inline"><h3>Initiative Title:</h3></label>
   </div>
@@ -25,23 +32,24 @@
       <fieldset>
         <legend><h5>Description/Justification</h5></legend>
 
-          <div class="large-12 columns">
-            <label><h5><span data-tooltip class="has-tip" title="Special instructions/tips for creating the narrative">Description</span></h5></label>
+          <div class="large-12 columns" data-reveal-id="descriptionModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Description:</h5></label>
           </div>
-          <div class="large-11 columns">
+          <div class="large-12 columns">
             <%= f.text_area :description, :rows => "8" %>
           </div>
-          <div class="large-1 columns" data-reveal-id="descriptionModal">
-            <a href="#" class="button small">?</a>
-          </div>
 
+          <div class="large-12 columns" data-reveal-id="descriptionModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Justification:</h5></label>
+          </div>
           <div class="large-12 columns">
-            <label><h5>Justification</h5></label>
             <%= f.text_area :justification, :rows => "8" %>
           </div>
 
+          <div class="large-12 columns" data-reveal-id="descriptionModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Other Alternatives Considered:</h5></label>
+          </div>
           <div class="large-12 columns">
-            <label><h5>Other Alternatives Considered</h5></label>
             <%= f.text_area :alternatives, :rows => "8" %>
           </div>
 
@@ -54,28 +62,30 @@
         <legend><h5>Funding Details</h5></legend>
 
           <div class="large-4 columns">
-            <label><h5>Lead Agency</h5></label>
+            <label><h5>Lead Agency:</h5></label>
             <%= f.text_field :lead_agency %>
           </div>
           <div class="large-4 columns">
-            <label><h5>Secondary Agency 1</h5></label>
+            <label><h5>Secondary Agency 1:</h5></label>
             <%= f.text_field :sec_agency_1 %>
           </div>
           <div class="large-4 columns">
-            <label><h5>Secondary Agency 2</h5></label>
+            <label><h5>Secondary Agency 2:</h5></label>
             <%= f.text_field :sec_agency_2 %>
           </div>
 
+          <div class="large-12 columns" data-reveal-id="descriptionModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Cost Analysis:</h5></label>
+          </div>
           <div class="large-12 columns">
-            <label><h5>Cost Analysis</h5></label>
-            <%= f.text_area :cost_analysis %>
+            <%= f.text_area :cost_analysis, :rows => "8" %>
           </div>
 
       </fieldset>
     </div>
 
-      <div class="actions">
-        <%= f.submit %>
+      <div class="button tiny alert">
+        <%= f.submit 'Save' %>
       </div>
     <% end %>
 

@@ -1,4 +1,4 @@
-        <h1>Listing initiatives</h1>
+        <h2>My Major Budget Initiatives</h2>
 
         <table>
           <thead>
@@ -8,10 +8,10 @@
               <th>Justification</th>
               <th>Alternatives</th>
  -->              <th>Lead agency</th>
-              <th>Sec agency 1</th>
-              <th>Sec agency 2</th>
-              <th>Cost analysis</th>
-              <th></th>
+              <th>Secondary Agency 1</th>
+              <th>Secondary Agency 2</th>
+<!--               <th>Cost analysis</th>
+ -->              <th></th>
               <th></th>
               <th></th>
             </tr>
@@ -27,10 +27,10 @@
  -->                <td><%= initiative.lead_agency %></td>
                 <td><%= initiative.sec_agency_1 %></td>
                 <td><%= initiative.sec_agency_2 %></td>
-                <td><%= initiative.cost_analysis %></td>
-                <td><%= link_to 'Show', initiative %></td>
+<!--                 <td><%= initiative.cost_analysis %></td>
+ -->                <td><%= link_to 'Show Preview', initiative %></td>
                 <td><%= link_to 'Edit', edit_initiative_path(initiative) %></td>
-                <td><%= link_to 'Destroy', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Delete', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
@@ -38,5 +38,5 @@
 
         <br>
 
-        <%= link_to 'New Initiative', new_initiative_path %>
+        <div class="button secondary small"><%= link_to 'Create New Initiative >>', new_initiative_path %></div>
 

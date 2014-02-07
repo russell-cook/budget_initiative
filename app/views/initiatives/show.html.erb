@@ -1,44 +1,84 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @initiative.title %>
-</p>
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+    <h2 class="subheader">Title: </h2>
+  </div>
+  <div class="large-9 columns">
+    <h2><%= @initiative.title %></h2>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @initiative.description %>
-</p>
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Description:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.description %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Justification:</strong>
-  <%= @initiative.justification %>
-</p>
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Justification:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.justification %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Alternatives:</strong>
-  <%= @initiative.alternatives %>
-</p>
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Alternatives:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.alternatives %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Lead agency:</strong>
-  <%= @initiative.lead_agency %>
-</p>
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Lead agency:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.lead_agency %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Sec agency 1:</strong>
-  <%= @initiative.sec_agency_1 %>
-</p>
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Sec agency 1:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.sec_agency_1 %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Sec agency 2:</strong>
-  <%= @initiative.sec_agency_2 %>
-</p>
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Sec agency 2:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.sec_agency_2 %></p>
+  </div>
+</div>
 
-<p>
-  <strong>Cost analysis:</strong>
-  <%= @initiative.cost_analysis %>
-</p>
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Cost analysis:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.cost_analysis %></p>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_initiative_path(@initiative) %> |
-<%= link_to 'Back', initiatives_path %>
+<br>
+<div class="row">
+  <div class="large-12 columns">
+    <center>
+    <div class="button small secondary"><%= link_to 'Edit', edit_initiative_path(@initiative) %></div>
+    <div class="button small secondary"><%= link_to 'Back to my Initiatives', initiatives_path %></div>
+  </center>
+  </div>
+</div>
+

@@ -1,8 +1,10 @@
-<h1>Editing initiative</h1>
+<h2>Edit Major Budget Initiative</h2>
 
 <%= render 'form' %>
 
+<div class="row">
 	<div class="large-12 columns">
-		<%= link_to 'Show', @initiative %> |
-		<%= link_to 'Back', initiatives_path %>
+		<div class="button small secondary"><%= link_to 'Show Preview', @initiative %></div>
+		<div class="button small secondary"><%= link_to 'Back to My Initiatives', initiatives_path %></div>
 	</div>
+</div>
