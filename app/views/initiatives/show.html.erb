@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @initiative.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @initiative.description %>
+</p>
+
+<p>
+  <strong>Justification:</strong>
+  <%= @initiative.justification %>
+</p>
+
+<p>
+  <strong>Alternatives:</strong>
+  <%= @initiative.alternatives %>
+</p>
+
+<p>
+  <strong>Lead agency:</strong>
+  <%= @initiative.lead_agency %>
+</p>
+
+<p>
+  <strong>Sec agency 1:</strong>
+  <%= @initiative.sec_agency_1 %>
+</p>
+
+<p>
+  <strong>Sec agency 2:</strong>
+  <%= @initiative.sec_agency_2 %>
+</p>
+
+<p>
+  <strong>Cost analysis:</strong>
+  <%= @initiative.cost_analysis %>
+</p>
+
+<%= link_to 'Edit', edit_initiative_path(@initiative) %> |
+<%= link_to 'Back', initiatives_path %>

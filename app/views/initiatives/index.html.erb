@@ -1,0 +1,42 @@
+        <h1>Listing initiatives</h1>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+<!--               <th>Description</th>
+              <th>Justification</th>
+              <th>Alternatives</th>
+ -->              <th>Lead agency</th>
+              <th>Sec agency 1</th>
+              <th>Sec agency 2</th>
+              <th>Cost analysis</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% @initiatives.each do |initiative| %>
+              <tr>
+                <td><%= initiative.title %></td>
+<!--                 <td><%= initiative.description %></td>
+                <td><%= initiative.justification %></td>
+                <td><%= initiative.alternatives %></td>
+ -->                <td><%= initiative.lead_agency %></td>
+                <td><%= initiative.sec_agency_1 %></td>
+                <td><%= initiative.sec_agency_2 %></td>
+                <td><%= initiative.cost_analysis %></td>
+                <td><%= link_to 'Show', initiative %></td>
+                <td><%= link_to 'Edit', edit_initiative_path(initiative) %></td>
+                <td><%= link_to 'Destroy', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+
+        <br>
+
+        <%= link_to 'New Initiative', new_initiative_path %>
+

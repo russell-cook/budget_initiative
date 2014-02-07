@@ -1,0 +1,87 @@
+
+    <%= form_for(@initiative) do |f| %>
+      <% if @initiative.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@initiative.errors.count, "error") %> prohibited this initiative from being saved:</h2>
+
+          <ul>
+          <% @initiative.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+  <div class="large-3 columns">
+    <label for="title-label" class="right inline"><h3>Initiative Title:</h3></label>
+  </div>
+  <div class="large-9 columns">
+    <h3>
+        <%= f.text_field :title %>
+    </h3>
+  </div>
+    
+    <div class="large-12 columns">
+      <fieldset>
+        <legend><h5>Description/Justification</h5></legend>
+
+          <div class="large-12 columns">
+            <label><h5><span data-tooltip class="has-tip" title="Special instructions/tips for creating the narrative">Description</span></h5></label>
+          </div>
+          <div class="large-11 columns">
+            <%= f.text_area :description, :rows => "8" %>
+          </div>
+          <div class="large-1 columns" data-reveal-id="descriptionModal">
+            <a href="#" class="button small">?</a>
+          </div>
+
+          <div class="large-12 columns">
+            <label><h5>Justification</h5></label>
+            <%= f.text_area :justification, :rows => "8" %>
+          </div>
+
+          <div class="large-12 columns">
+            <label><h5>Other Alternatives Considered</h5></label>
+            <%= f.text_area :alternatives, :rows => "8" %>
+          </div>
+
+      </fieldset>
+    </div>
+
+    <div class="large-12 columns">
+
+      <fieldset>
+        <legend><h5>Funding Details</h5></legend>
+
+          <div class="large-4 columns">
+            <label><h5>Lead Agency</h5></label>
+            <%= f.text_field :lead_agency %>
+          </div>
+          <div class="large-4 columns">
+            <label><h5>Secondary Agency 1</h5></label>
+            <%= f.text_field :sec_agency_1 %>
+          </div>
+          <div class="large-4 columns">
+            <label><h5>Secondary Agency 2</h5></label>
+            <%= f.text_field :sec_agency_2 %>
+          </div>
+
+          <div class="large-12 columns">
+            <label><h5>Cost Analysis</h5></label>
+            <%= f.text_area :cost_analysis %>
+          </div>
+
+      </fieldset>
+    </div>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+    <% end %>
+
+<div id="descriptionModal" class="reveal-modal medium">
+  <h2>Instructions for 'Description'</h2>
+  <p class="lead">Special Data-Entry Instructions Header</p>
+  <p>Here we can display special instructions to the user for each field or category.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
