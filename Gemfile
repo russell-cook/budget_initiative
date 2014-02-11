@@ -17,8 +17,10 @@ gem 'jbuilder', '1.0.2'
 
 # Install Foundation
 gem 'compass-rails', '1.1.3'
-
 gem 'zurb-foundation', '= 4.3.2'
+
+# Install Devise
+gem 'devise', '3.2.2'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
