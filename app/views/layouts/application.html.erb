@@ -23,6 +23,11 @@
   </head>
 
   <body>
+    <ul class="hmenu">
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
+
     <div class="row">
       <div class="large-12 columns">
         <%= yield %>

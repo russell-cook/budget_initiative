@@ -1,11 +1,11 @@
 class InitiativesController < ApplicationController
   before_action :set_initiative, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   # GET /initiatives
   # GET /initiatives.json
   def index
-    @initiatives = Initiative.all
+    @initiatives = current_user.initiatives.all
   end
 
   # GET /initiatives/1
@@ -15,7 +15,7 @@ class InitiativesController < ApplicationController
 
   # GET /initiatives/new
   def new
-    @initiative = Initiative.new
+    @initiative = current_user.initiatives.new
   end
 
   # GET /initiatives/1/edit
@@ -25,7 +25,7 @@ class InitiativesController < ApplicationController
   # POST /initiatives
   # POST /initiatives.json
   def create
-    @initiative = Initiative.new(initiative_params)
+    @initiative = current_user.initiatives.build(initiative_params)
 
     respond_to do |format|
       if @initiative.save
