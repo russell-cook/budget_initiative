@@ -23,13 +23,13 @@
   </head>
 
   <body>
-    <ul class="hmenu">
-      <%= render 'devise/menu/registration_items' %>
-      <%= render 'devise/menu/login_items' %>
-    </ul>
+        <%- if user_signed_in? %>
+          <%= render 'initiatives/nav_bar' %>
+        <%- end %>
 
     <div class="row">
       <div class="large-12 columns">
+
         <%= yield %>
       </div>
     </div>

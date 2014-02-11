@@ -1,5 +1,5 @@
 body, html {
-  background: #2e5e8d;
+  background: #254A70;
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #254A70), color-stop(1, #2E5E8D));
   background-image: -o-linear-gradient(bottom, #254A70 0%, #2E5E8D 100%);
   background-image: -moz-linear-gradient(bottom, #254A70 0%, #2E5E8D 100%);
@@ -13,12 +13,3 @@ html {
   background-repeat: no-repeat;
 }
 
-ul.hmenu {
-  list-style: none; 
-  margin: 0 0 2em;
-  padding: 0;
-}
-
-ul.hmenu li {
-  display: inline;  
-}

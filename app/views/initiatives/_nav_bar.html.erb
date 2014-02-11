@@ -1,0 +1,44 @@
+<!--     <ul class="hmenu">
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
+ -->
+<div class="row">
+
+	<nav class="top-bar" data-options="is_hover:false">
+	  <ul class="title-area">
+	    <!-- Title Area -->
+	    <li class="name">
+	      <h1 style="color:#ccc; padding-left:10px">Major Budget Initiative Data-Entry Template</h1>
+	    </li>
+	    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+	    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+	  </ul>
+
+	  <section class="top-bar-section">
+	    <!-- Right Nav Section -->
+	    <ul class="right">
+			<li><%= link_to('My Budget Initiatives', initiatives_path) %></li>
+			<li><%= render 'devise/menu/login_items' %></li>
+	      <li class="divider hide-for-small"></li>
+	      <li class="has-dropdown"><a href="#">User Account</a>
+
+	        <ul class="dropdown">
+	<!--           <li><label>Dropdown Level 1 Label</label></li>
+	 -->          <li><%= link_to('Edit Account Settings', edit_user_registration_path) %></li>
+	<!--           <li><a href="#">Dropdown Level 1b</a></li>
+	          <li><a href="#">Dropdown Level 1c</a></li>
+	          <li class="divider"></li>
+	          <li><label>Dropdown Level 1 Label</label></li>
+	          <li><a href="#">Dropdown Level 1d</a></li>
+	          <li><a href="#">Dropdown Level 1e</a></li>
+	          <li><a href="#">Dropdown Level 1f</a></li>
+	          <li class="divider"></li>
+	          <li><a href="#">See all &rarr;</a></li>
+	 -->        </ul>
+	      </li>
+	    </ul>
+	  </section>
+	</nav>
+
+</div>

@@ -19,8 +19,9 @@ gem 'jbuilder', '1.0.2'
 gem 'compass-rails', '1.1.3'
 gem 'zurb-foundation', '= 4.3.2'
 
-# Install Devise
+# Install Devise and simple_form
 gem 'devise', '3.2.2'
+gem 'simple_form', '3.0.1'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
