@@ -12,6 +12,10 @@ class InitiativesController < ApplicationController
   # GET /initiatives/1
   # GET /initiatives/1.json
   def show
+    init = Initiative.find(params[:id])
+    if init.user_id != current_user.id
+      redirect_to initiatives_path
+    end
   end
 
   # GET /initiatives/new
@@ -21,6 +25,10 @@ class InitiativesController < ApplicationController
 
   # GET /initiatives/1/edit
   def edit
+    init = Initiative.find(params[:id])
+    if init.user_id != current_user.id
+      redirect_to initiatives_path
+    end
   end
 
   # POST /initiatives
