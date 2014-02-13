@@ -23,6 +23,9 @@ gem 'zurb-foundation', '= 4.3.2'
 gem 'devise', '3.2.2'
 gem 'simple_form', '3.0.1'
 
+# Install Prawn PDF
+gem 'prawn', '0.14.0'
+
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end

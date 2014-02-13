@@ -1,4 +1,6 @@
 class InitiativesController < ApplicationController
+  require 'prawn'
+
   before_action :set_initiative, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -16,6 +18,9 @@ class InitiativesController < ApplicationController
     if init.user_id != current_user.id
       redirect_to initiatives_path
     end
+    # pdf = Prawn::Document.new
+    # pdf.text init.title
+    # send_data pdf.render, filename: "test.pdf", type: "application/pdf"
   end
 
   # GET /initiatives/new
