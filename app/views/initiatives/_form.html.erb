@@ -84,6 +84,130 @@
       </fieldset>
     </div>
 
+    <div class="large-12 columns">
+
+      <fieldset>
+        <legend><h5>Objectives/Benchmarks Advanced</h5></legend>
+
+          <div class="large-4 columns">
+            <label><h5>Objective #1:</h5></label>
+            <%= f.text_field :objective_1 %>
+          </div>
+          <div class="large-4 columns">
+            <label><h5>Benchmark:</h5></label>
+            <%= f.text_field :benchmark_1a %>
+          </div>
+          <div class="large-4 columns">
+            <label><h5>Benchmark:</h5></label>
+            <%= f.text_field :benchmark_1b %>
+          </div>
+
+          <hr>
+
+          <div class="large-4 columns">
+            <label><h5>Objective #2:</h5></label>
+            <%= f.text_field :objective_2 %>
+          </div>
+          <div class="large-4 columns">
+            <label><h5>Benchmark:</h5></label>
+            <%= f.text_field :benchmark_2a %>
+          </div>
+          <div class="large-4 columns">
+            <label><h5>Benchmark:</h5></label>
+            <%= f.text_field :benchmark_2b %>
+          </div>
+
+<!--           <hr>
+
+          <div class="large-4 columns">
+            <label><h5>Objective #3:</h5></label>
+            <%= f.text_field :objective_3 %>
+          </div>
+          <div class="large-4 columns">
+            <label><h5>Benchmark:</h5></label>
+            <%= f.text_field :benchmark_3a %>
+          </div>
+          <div class="large-4 columns">
+            <label><h5>Benchmark:</h5></label>
+            <%= f.text_field :benchmark_3b %>
+          </div>
+ -->
+      </fieldset>
+    </div>
+
+    <div class="large-12 columns">
+
+      <fieldset>
+        <legend><h5>Initiative-Level Performance Measures (Proposed)</h5></legend>
+
+          <div class="large-12 columns">
+            <label><h5>Initiative-Level Performance Measure #1:</h5></label>
+            <%= f.text_field :init_pm_1 %>
+          </div>
+          <div class="large-12 columns">
+            <label><h5>Cost of Proposed Measure:</h5></label>
+            <%= f.text_area :init_pm_1_cost, :rows => "4" %>
+          </div>
+          <hr>
+
+          <div class="large-12 columns">
+            <label><h5>Initiative-Level Performance Measure #2:</h5></label>
+            <%= f.text_field :init_pm_2 %>
+          </div>
+          <div class="large-12 columns">
+            <label><h5>Cost of Proposed Measure:</h5></label>
+            <%= f.text_area :init_pm_2_cost, :rows => "4" %>
+          </div>
+
+
+      </fieldset>
+    </div>
+
+    <div class="large-12 columns">
+
+      <fieldset>
+        <legend><h5>Activity-Level Performance Measures (Existing PPBB Measures)</h5></legend>
+
+          <div class="large-12 columns">
+            <label><h5>Activity-Level Performance Measure #1:</h5></label>
+            <%= f.text_field :agency_pm_1 %>
+          </div>
+          <hr>
+
+          <div class="large-12 columns">
+            <label><h5>Activity-Level Performance Measure #2:</h5></label>
+            <%= f.text_field :agency_pm_2 %>
+          </div>
+
+      </fieldset>
+    </div>
+
+    <div class="large-12 columns">
+
+      <fieldset>
+        <legend><h5>Population/Caseload</h5></legend>
+
+          <div class="large-12 columns">
+            <label><h5>Population:</h5></label>
+            <%= f.text_area :population, :rows => "4" %>
+          </div>
+          <hr>
+
+          <div class="large-12 columns">
+            <label><h5>Caseload:</h5></label>
+            <%= f.text_area :caseload, :rows => "4" %>
+          </div>
+          <hr>
+
+          <div class="large-12 columns">
+            <label><h5>Who is Impacted:</h5></label>
+            <%= f.text_area :who_impacted, :rows => "4" %>
+          </div>
+
+      </fieldset>
+    </div>
+
+
       <div class="button tiny alert">
         <%= f.submit 'Save' %>
       </div>

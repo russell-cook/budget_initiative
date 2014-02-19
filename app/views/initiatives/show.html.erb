@@ -10,6 +10,12 @@
 </div>
 
 <div class="row">
+  <center>
+    <h3>Overview</h3>
+  </center>
+</div>
+
+<div class="row">
   <div class="large-3 columns" style="text-align:right;">
   <p><strong>Description:</strong></p>
   </div>
@@ -29,7 +35,7 @@
 
 <div class="row">
   <div class="large-3 columns" style="text-align:right;">
-  <p><strong>Alternatives:</strong></p>
+  <p><strong>Other Alternatives Considered:</strong></p>
   </div>
   <div class="large-9 columns">
   <p><%= @initiative.alternatives %></p>
@@ -37,30 +43,9 @@
 </div>
 
 <div class="row">
-  <div class="large-3 columns" style="text-align:right;">
-  <p><strong>Lead agency:</strong></p>
-  </div>
-  <div class="large-9 columns">
-  <p><%= @initiative.lead_agency %></p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="large-3 columns" style="text-align:right;">
-  <p><strong>Sec agency 1:</strong></p>
-  </div>
-  <div class="large-9 columns">
-  <p><%= @initiative.sec_agency_1 %></p>
-  </div>
-</div>
-
-<div class="row">
-  <div class="large-3 columns" style="text-align:right;">
-  <p><strong>Sec agency 2:</strong></p>
-  </div>
-  <div class="large-9 columns">
-  <p><%= @initiative.sec_agency_2 %></p>
-  </div>
+  <center>
+    <h3>Funding</h3>
+  </center>
 </div>
 
 <div class="row">
@@ -71,6 +56,196 @@
   <p><%= @initiative.cost_analysis %></p>
   </div>
 </div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Lead Agency:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.lead_agency %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Secondary Agency 1:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.sec_agency_1 %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Secondary Agency 2:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.sec_agency_2 %></p>
+  </div>
+</div>
+
+<div class="row">
+  <center>
+    <h3>Obejctives/Benchmarks Advanced</h3>
+  </center>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Objective #1:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.objective_1 %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Benchmark:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.benchmark_1a %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Benchmark:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.benchmark_1b %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Objective #2:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.objective_2 %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Benchmark:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.benchmark_2a %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Benchmark:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.benchmark_2b %></p>
+  </div>
+</div>
+
+<div class="row">
+  <center>
+    <h3>Initiative-Level Performance Measures (Proposed)</h3>
+  </center>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Initiative-Level PM #1:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.init_pm_1 %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Cost of Measure:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.init_pm_1_cost %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Initiative-Level PM #2:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.init_pm_2 %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Cost of Measure:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.init_pm_2_cost %></p>
+  </div>
+</div>
+
+<div class="row">
+  <center>
+    <h3>Activity-Level Performance Measures (Existing)</h3>
+  </center>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Activity-Level PM #1:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.agency_pm_1 %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Activity-Level PM #2:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.agency_pm_2 %></p>
+  </div>
+</div>
+
+<div class="row">
+  <center>
+    <h3>Population/Caseload</h3>
+  </center>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Population:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.population %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Caseload:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.caseload %></p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-3 columns" style="text-align:right;">
+  <p><strong>Who Is Impacted:</strong></p>
+  </div>
+  <div class="large-9 columns">
+  <p><%= @initiative.who_impacted %></p>
+  </div>
+</div>
+
+
+
+
 
 <br>
 <div class="row">

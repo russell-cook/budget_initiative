@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140211062013) do
+ActiveRecord::Schema.define(version: 20140219025323) do
 
   create_table "initiatives", force: true do |t|
     t.text     "title"
@@ -25,6 +25,33 @@ ActiveRecord::Schema.define(version: 20140211062013) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "objective_1"
+    t.string   "benchmark_1a"
+    t.string   "benchmark_1b"
+    t.string   "objective_2"
+    t.string   "benchmark_2a"
+    t.string   "benchmark_2b"
+    t.string   "objective_3"
+    t.string   "benchmark_3a"
+    t.string   "benchmark_3b"
+    t.string   "init_pm_1"
+    t.boolean  "init_pm_1_prop"
+    t.string   "init_pm_2"
+    t.boolean  "init_pm_2_prop"
+    t.string   "init_pm_3"
+    t.boolean  "init_pm_3_prop"
+    t.string   "agency_pm_1"
+    t.boolean  "agency_pm_1_prop"
+    t.string   "agency_pm_2"
+    t.boolean  "agency_pm_2_prop"
+    t.string   "agency_pm_3"
+    t.boolean  "agency_pm_3_prop"
+    t.string   "population"
+    t.string   "caseload"
+    t.string   "who_impacted"
+    t.string   "init_pm_1_cost"
+    t.string   "init_pm_2_cost"
+    t.string   "init_pm_3_cost"
   end
 
   create_table "users", force: true do |t|
