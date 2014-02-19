@@ -36,8 +36,8 @@ class InitiativesController < ApplicationController
 
   # POST /initiatives
   # POST /initiatives.json
-  def initiative
-    @create = current_user.initiatives.build(initiative_params)
+  def create
+    @initiative = current_user.initiatives.build(initiative_params)
 
     respond_to do |format|
       if @initiative.save

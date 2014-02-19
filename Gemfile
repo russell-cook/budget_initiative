@@ -15,6 +15,8 @@ gem 'jquery-rails', '3.0.4'
 gem 'turbolinks', '1.1.1'
 gem 'jbuilder', '1.0.2'
 
+gem 'jquery-turbolinks', '2.0.2'
+
 # Install Foundation
 gem 'compass-rails', '1.1.3'
 gem 'zurb-foundation', '= 4.3.2'

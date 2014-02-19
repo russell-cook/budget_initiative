@@ -13,7 +13,33 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
+//= require jquery.turbolinks
 //= require_tree .
 
 $(document).foundation();
+
+//= require turbolinks
+
+// confirm unsaved changes on form exit
+
+$(document).ready(function () {
+
+	var unsaved = false;
+
+	$(":input").click(function(){ //trigers change in all input fields including text type
+	    unsaved = true;
+	});
+
+	$(':submit').click(function() {
+	    unsaved = false;
+	});
+
+	function unloadPage(){ 
+	    if(unsaved){
+	        return "You have unsaved changes on this page. Do you want to leave this page and discard your changes or stay on this page?";
+	    }
+	}
+
+	window.onbeforeunload = unloadPage;
+
+});
