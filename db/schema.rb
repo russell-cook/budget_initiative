@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219025323) do
+ActiveRecord::Schema.define(version: 20140220010119) do
 
   create_table "initiatives", force: true do |t|
     t.text     "title"
@@ -53,6 +53,17 @@ ActiveRecord::Schema.define(version: 20140219025323) do
     t.string   "init_pm_2_cost"
     t.string   "init_pm_3_cost"
   end
+
+  create_table "shares", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "initiative_id"
+    t.boolean  "edit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "shares", ["initiative_id"], name: "index_shares_on_initiative_id"
+  add_index "shares", ["user_id"], name: "index_shares_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
