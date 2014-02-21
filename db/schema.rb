@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140220010119) do
+ActiveRecord::Schema.define(version: 20140221012314) do
 
   create_table "initiatives", force: true do |t|
     t.text     "title"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20140220010119) do
     t.boolean  "edit"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "comments"
+    t.string   "user_email"
   end
 
   add_index "shares", ["initiative_id"], name: "index_shares_on_initiative_id"

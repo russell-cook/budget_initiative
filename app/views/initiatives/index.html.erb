@@ -15,6 +15,7 @@
  -->              <th></th>
               <th></th>
               <th></th>
+              <th></th>
             </tr>
           </thead>
 
@@ -31,6 +32,7 @@
 <!--                 <td><%= initiative.cost_analysis %></td>
  -->                <td><%= link_to 'View', initiative %></td>
                 <td><%= link_to 'Edit', edit_initiative_path(initiative) %></td>
+                <td><%= link_to 'Share', initiative_shares_path(initiative) %></td>
                 <td><%= link_to 'Delete', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>

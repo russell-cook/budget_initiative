@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+  <div class="large-4 columns" style="text-align:right;">
+    <h2 class="subheader">Title: </h2>
+  </div>
+  <div class="large-8 columns">
+    <h2><%= @initiative.title %></h2>
+  </div>
+</div>
+
+<h4>Currently shared with users:</h4>
+<table width="100%">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Comments</th>
+      <th>User Can Modify?</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @initiative.shares.each do |share| %>
+      <tr>
+        <td><%= share.user %></td>
+        <td><%= share.comments %></td>
+        <td><%= share.edit %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h4>Share with a new user:</h4>
+<div class="panel">
+  <%= form_for([@initiative, @initiative.shares.build]) do |f| %>
+    <p>
+      <%= f.label :user_email %><br />
+      <%= f.text_field :user_email %>
+    </p>
+    <p>
+      <%= f.label :comments %><br />
+      <%= f.text_field :comments %>
+    </p>
+    <p>
+      <%= f.label :edit %><br />
+      <%= f.check_box :edit %>
+    </p>
+    <p>
+      <%= f.submit 'Share Initiative' %>
+    </p>
+  <% end %>
+</div>
+
+
