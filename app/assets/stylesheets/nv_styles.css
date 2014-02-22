@@ -13,3 +13,6 @@ html {
   background-repeat: no-repeat;
 }
 
+#alert {
+	color: red;
+}

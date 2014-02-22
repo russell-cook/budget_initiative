@@ -13,6 +13,7 @@ class InitiativesController < ApplicationController
   # GET /initiatives.json
   def index
     @initiatives = current_user.initiatives.all
+    # @shared_initiatives = Initiative.share.where(email: current_user.email)
   end
 
   # GET /initiatives/1

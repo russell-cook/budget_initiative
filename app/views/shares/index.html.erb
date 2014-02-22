@@ -1,4 +1,5 @@
 <p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
 
 <div class="row">
   <div class="large-4 columns" style="text-align:right;">
@@ -24,10 +25,31 @@
   <tbody>
     <% @initiative.shares.each do |share| %>
       <tr>
-        <td><%= share.user %></td>
+        <td><%= share.user_email %></td>
         <td><%= share.comments %></td>
         <td><%= share.edit %></td>
         <td></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h4>List all Users:</h4>
+<table width="100%">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.id %></td>
         <td></td>
       </tr>
     <% end %>
