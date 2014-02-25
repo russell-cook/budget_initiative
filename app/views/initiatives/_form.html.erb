@@ -19,14 +19,36 @@
           </div>
         </div>
       </div>
-  <div class="large-3 columns">
-    <label for="title-label" class="right inline"><h3>Initiative Title:</h3></label>
-  </div>
-  <div class="large-9 columns">
-    <h3>
-        <%= f.text_field :title %>
-    </h3>
-  </div>
+
+      <div class="large-3 columns">
+        <label for="title-label" class="right inline"><h3>Initiative Title:</h3></label>
+      </div>
+      <div class="large-9 columns">
+        <h3>
+            <%= f.text_field :title %>
+        </h3>
+      </div>
+
+    <div class="large-12 columns">
+      <fieldset>
+        <legend><h5>Agencies Involved</h5></legend>
+
+      <div class="large-4 columns">
+        <label><h5>Lead Agency:</h5></label>
+        <%= f.text_field :lead_agency %>
+      </div>
+      <div class="large-4 columns">
+        <label><h5>Secondary Agency 1:</h5></label>
+        <%= f.text_field :sec_agency_1 %>
+      </div>
+      <div class="large-4 columns">
+        <label><h5>Secondary Agency 2:</h5></label>
+        <%= f.text_field :sec_agency_2 %>
+      </div>
+      </fieldset>
+    </div>
+
+
     
     <div class="large-12 columns">
       <fieldset>
@@ -39,14 +61,14 @@
             <%= f.text_area :description, :rows => "8" %>
           </div>
 
-          <div class="large-12 columns" data-reveal-id="descriptionModal">
+          <div class="large-12 columns" data-reveal-id="justificationModal">
             <label><h5><a href="#" class="button tiny secondary">?</a> Justification:</h5></label>
           </div>
           <div class="large-12 columns">
             <%= f.text_area :justification, :rows => "8" %>
           </div>
 
-          <div class="large-12 columns" data-reveal-id="descriptionModal">
+          <div class="large-12 columns" data-reveal-id="alternativesModal">
             <label><h5><a href="#" class="button tiny secondary">?</a> Other Alternatives Considered:</h5></label>
           </div>
           <div class="large-12 columns">
@@ -61,20 +83,7 @@
       <fieldset>
         <legend><h5>Funding Details</h5></legend>
 
-          <div class="large-4 columns">
-            <label><h5>Lead Agency:</h5></label>
-            <%= f.text_field :lead_agency %>
-          </div>
-          <div class="large-4 columns">
-            <label><h5>Secondary Agency 1:</h5></label>
-            <%= f.text_field :sec_agency_1 %>
-          </div>
-          <div class="large-4 columns">
-            <label><h5>Secondary Agency 2:</h5></label>
-            <%= f.text_field :sec_agency_2 %>
-          </div>
-
-          <div class="large-12 columns" data-reveal-id="descriptionModal">
+          <div class="large-12 columns" data-reveal-id="analysisModal">
             <label><h5><a href="#" class="button tiny secondary">?</a> Cost Analysis:</h5></label>
           </div>
           <div class="large-12 columns">
@@ -87,7 +96,9 @@
     <div class="large-12 columns">
 
       <fieldset>
-        <legend><h5>Objectives/Benchmarks Advanced</h5></legend>
+        
+          <legend><div data-reveal-id="objectivesModal"><h5><a href="#" class="button tiny secondary">?</a> Objectives/Benchmarks Advanced</h5></div></legend>
+        
 
           <div class="large-4 columns">
             <label><h5>Objective #1:</h5></label>
@@ -187,20 +198,18 @@
       <fieldset>
         <legend><h5>Population/Caseload</h5></legend>
 
-          <div class="large-12 columns">
-            <label><h5>Population:</h5></label>
+          <div class="large-12 columns" data-reveal-id="populationModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Population:</h5></label>
             <%= f.text_area :population, :rows => "4" %>
           </div>
-          <hr>
 
-          <div class="large-12 columns">
-            <label><h5>Caseload:</h5></label>
+          <div class="large-12 columns" data-reveal-id="caseloadModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Caseload:</h5></label>
             <%= f.text_area :caseload, :rows => "4" %>
           </div>
-          <hr>
 
-          <div class="large-12 columns">
-            <label><h5>Who is Impacted:</h5></label>
+          <div class="large-12 columns" data-reveal-id="impactedModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Who is Impacted:</h5></label>
             <%= f.text_area :who_impacted, :rows => "4" %>
           </div>
 
@@ -213,9 +222,60 @@
       </div>
     <% end %>
 
-<div id="descriptionModal" class="reveal-modal medium">
-  <h2>Instructions for 'Description'</h2>
-  <p class="lead">Special Data-Entry Instructions Header</p>
+<div id="descriptionModal" class="reveal-modal small">
+  <h2>Description</h2>
+  <p class="lead">Header? (we can show or hide this)</p>
   <p>Here we can display special instructions to the user for each field or category.</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
+
+<div id="justificationModal" class="reveal-modal small">
+  <h2>Justification</h2>
+  <p class="lead">Header? (we can show or hide this)</p>
+  <p>Here we can display special instructions to the user for each field or category.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="alternativesModal" class="reveal-modal small">
+  <h2>Other Alternatives Considered</h2>
+  <p class="lead">Header? (we can show or hide this)</p>
+  <p>Here we can display special instructions to the user for each field or category.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="analysisModal" class="reveal-modal small">
+  <h2>Cost Analysis</h2>
+  <p class="lead">Header? (we can show or hide this)</p>
+  <p>Here we can display special instructions to the user for each field or category.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="objectivesModal" class="reveal-modal small">
+  <h2>Objectives/Benchmarks Advanced</h2>
+  <p class="lead">Header? (we can show or hide this)</p>
+  <p>Objectives and Benchmarks are part of Nevada's Priorities and Performance Based Budget (PPBB) process. PPBB Objectives are high-level goals that the State is trying to achieve; Benchmarks are high-level measures of how well the State is doing at achieveing or making progress towards those Objectives. A Major Budget Initiative should advance one or more Statewide Objectives, along with one or more of that Objective's associated Benchmarks. </p>
+  <p>For a list of Statewide Objectives (and their associated Benchmarks) please visit Nevada's <a href="http://openbudget.nv.gov/OpenGov/ViewPPBBSummary.aep" target="_new">Openbudget website</a>. Objectives can be located by their associated Core Function using the 'Core Function' tab.
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="populationModal" class="reveal-modal small">
+  <h2>Population</h2>
+  <p class="lead">Header? (we can show or hide this)</p>
+  <p>Here we can display special instructions to the user for each field or category.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="caseloadModal" class="reveal-modal small">
+  <h2>Caseload</h2>
+  <p class="lead">Header? (we can show or hide this)</p>
+  <p>Here we can display special instructions to the user for each field or category.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="impactedModal" class="reveal-modal small">
+  <h2>Who is Impacted?</h2>
+  <p class="lead">Header? (we can show or hide this)</p>
+  <p>Here we can display special instructions to the user for each field or category.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
