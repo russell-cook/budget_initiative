@@ -31,7 +31,7 @@
 
     <div class="large-12 columns">
       <fieldset>
-        <legend><h5>Agencies Involved</h5></legend>
+        <legend><div data-reveal-id="agenciesModal"><h5><a href="#" class="button tiny secondary">?</a> Agencies Involved</h5></div></legend>
 
       <div class="large-4 columns">
         <label><h5>Lead Agency:</h5></label>
@@ -149,14 +149,14 @@
     <div class="large-12 columns">
 
       <fieldset>
-        <legend><h5>Initiative-Level Performance Measures (Proposed)</h5></legend>
+        <legend><div data-reveal-id="initiativePmModal"><h5><a href="#" class="button tiny secondary">?</a> Initiative-Level Performance Measures (Proposed)</h5></div></legend>
 
           <div class="large-12 columns">
             <label><h5>Initiative-Level Performance Measure #1:</h5></label>
             <%= f.text_field :init_pm_1 %>
           </div>
-          <div class="large-12 columns">
-            <label><h5>Cost of Proposed Measure:</h5></label>
+          <div class="large-12 columns" data-reveal-id="costOfPmModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Cost of Proposed Measure:</h5></label>
             <%= f.text_area :init_pm_1_cost, :rows => "4" %>
           </div>
           <hr>
@@ -165,8 +165,8 @@
             <label><h5>Initiative-Level Performance Measure #2:</h5></label>
             <%= f.text_field :init_pm_2 %>
           </div>
-          <div class="large-12 columns">
-            <label><h5>Cost of Proposed Measure:</h5></label>
+          <div class="large-12 columns" data-reveal-id="costOfPmModal">
+            <label><h5><a href="#" class="button tiny secondary">?</a> Cost of Proposed Measure:</h5></label>
             <%= f.text_area :init_pm_2_cost, :rows => "4" %>
           </div>
 
@@ -177,7 +177,7 @@
     <div class="large-12 columns">
 
       <fieldset>
-        <legend><h5>Activity-Level Performance Measures (Existing PPBB Measures)</h5></legend>
+        <legend><div data-reveal-id="activityPmModal"><h5><a href="#" class="button tiny secondary">?</a> Activity-Level Performance Measures (Existing PPBB Measures)</h5></div></legend>
 
           <div class="large-12 columns">
             <label><h5>Activity-Level Performance Measure #1:</h5></label>
@@ -208,12 +208,12 @@
             <%= f.text_area :caseload, :rows => "4" %>
           </div>
 
-          <div class="large-12 columns" data-reveal-id="impactedModal">
+<!--           <div class="large-12 columns" data-reveal-id="impactedModal">
             <label><h5><a href="#" class="button tiny secondary">?</a> Who is Impacted:</h5></label>
             <%= f.text_area :who_impacted, :rows => "4" %>
           </div>
 
-      </fieldset>
+ -->      </fieldset>
     </div>
 
 
@@ -222,60 +222,77 @@
       </div>
     <% end %>
 
+<div id="agenciesModal" class="reveal-modal small">
+  <h2>Agencies Involved</h2>
+<!--   <p class="lead">Header? (we can show or hide this)</p>
+ -->  <p>This section provides for identifying the lead Division involved in the Initiative. Secondary divisions or departments can also be included if there is collaboration on an initiative. The lead agency is responsible to control the narrative and data entry.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
 <div id="descriptionModal" class="reveal-modal small">
   <h2>Description</h2>
-  <p class="lead">Header? (we can show or hide this)</p>
-  <p>Here we can display special instructions to the user for each field or category.</p>
+  <p>This is where we describe <i>WHAT</i> we are doing, <i>HOW</i> we propose to do it and <i>WHEN</i> we will get it done. It is important to hit all of the real key elements in the first couple of paragraphs as this portion will be included in a high level summary. The remainder of the narrative can be as exhaustive as needed to provide a full description. We are encouraging concise and hard hitting text.</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <div id="justificationModal" class="reveal-modal small">
   <h2>Justification</h2>
-  <p class="lead">Header? (we can show or hide this)</p>
-  <p>Here we can display special instructions to the user for each field or category.</p>
+  <p>This is where we describe <i>WHY</i> we want to pursue this Initiative. We should describe the current condition that needs to be addressed and/or the opportunity for improvement. Again, the first two paragraphs should summarize all key elements as they will be used for a high level summary. The remainder should include elements necessary to make a compelling argument that this Initiative will add value to the state (for example, who stands to benefit from the Initiative going forward?). 
+  </p>
+  <p>If there are external pressures such as Federal requirements or court orders, these items should be discussed in this section.</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <div id="alternativesModal" class="reveal-modal small">
   <h2>Other Alternatives Considered</h2>
-  <p class="lead">Header? (we can show or hide this)</p>
-  <p>Here we can display special instructions to the user for each field or category.</p>
+  <p>Here you should describe alternative options for addressing the existing conditions listed in the <i><strong>Justification</strong></i> section, or for advancing the goals listed in the <i><strong>Description</strong></i> section.</p>
+  <p>For instance, is there another structure or method to get similar results? Are there more cost effective solutions that may provide varying results or different degrees of predictability?</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <div id="analysisModal" class="reveal-modal small">
   <h2>Cost Analysis</h2>
-  <p class="lead">Header? (we can show or hide this)</p>
-  <p>Here we can display special instructions to the user for each field or category.</p>
+  <p>We are asking that each Initiative provide a high level summary of the costs involved in advancing the concept. Once NEBS data entry fields are fully functional, this data will be pulled directly from decision units. During the development period (and to help us quantify overall costs) we are looking for a narrative description that provides a broad assessment of the costs. For example: <blockquote>This Initiative requires hiring of 5 staff to operate the program and two support positions for an estimated cost of $500,000 in the first year of the biennium and $750,000 in the second year. We estimate other costs associated with this initiative to total approximately $1 million over the biennium for a total of $2.25 million. These costs will be funded with approximately 75% general funds and 25% Federal or other matching funds. Federal and/or other funds are new funds that will not require diversion from existing programs.</blockquote></p>
+  <p>We are asking that you be as detailed as possible, but we understand that this is an estimation process.
+</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <div id="objectivesModal" class="reveal-modal small">
   <h2>Objectives/Benchmarks Advanced</h2>
-  <p class="lead">Header? (we can show or hide this)</p>
   <p>Objectives and Benchmarks are part of Nevada's Priorities and Performance Based Budget (PPBB) process. PPBB Objectives are high-level goals that the State is trying to achieve; Benchmarks are high-level measures of how well the State is doing at achieveing or making progress towards those Objectives. A Major Budget Initiative should advance one or more Statewide Objectives, along with one or more of that Objective's associated Benchmarks. </p>
   <p>For a list of Statewide Objectives (and their associated Benchmarks) please visit Nevada's <a href="http://openbudget.nv.gov/OpenGov/ViewPPBBSummary.aep" target="_new">Openbudget website</a>. Objectives can be located by their associated Core Function using the 'Core Function' tab.
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
+<div id="initiativePmModal" class="reveal-modal small">
+  <h2>Initiative-Level Performance Measures (Proposed)</h2>
+  <p>If a statewide benchmark or an existing activity performance measure does not <u><strong>directly</strong></u> measure the impact of this initiative, we are requiring that each initiative propose one or more measures to accomplish this purpose. Please note that we are looking for very discreet and direct measures of results of these specific dollars spent.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="costOfPmModal" class="reveal-modal small">
+  <h2>Cost of Proposed Measure</h2>
+  <p>If a new <i><strong>Initiative-Level Performance Measure</strong></i> is being introduced, this allows for a description of any costs associated with administering the measure.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<div id="activityPmModal" class="reveal-modal small">
+  <h2>Activity-Level Performance Measures</h2>
+  <p>Activities and Performance Measures are part of Nevada's Priorities and Performance Based Budget (PPBB) process. Ech PPBB Activity can be associated with up to three Performance Measures. If an existing PPBB Performance Measure can be used to <u><strong>directly</strong></u> measure the impact of the budget initiative, it should be included here.</p>
+  <p>For a list of existing PPBB Activites and their associated Performance Measures please visit Nevada's <a href="http://openbudget.nv.gov/OpenGov/ViewPPBBSummary.aep" target="_new">Openbudget website</a>. Activities can be located via their associated Core Functions and Objectives by drilling down through the 'Core Function' tab.
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
 <div id="populationModal" class="reveal-modal small">
   <h2>Population</h2>
-  <p class="lead">Header? (we can show or hide this)</p>
-  <p>Here we can display special instructions to the user for each field or category.</p>
+  <p>This provides a field to directly discuss a discreet population that is served by (or will benefit from) the Initiative.</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <div id="caseloadModal" class="reveal-modal small">
   <h2>Caseload</h2>
-  <p class="lead">Header? (we can show or hide this)</p>
-  <p>Here we can display special instructions to the user for each field or category.</p>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
-
-<div id="impactedModal" class="reveal-modal small">
-  <h2>Who is Impacted?</h2>
-  <p class="lead">Header? (we can show or hide this)</p>
-  <p>Here we can display special instructions to the user for each field or category.</p>
+  <p>If the Initiative addresses an under- or un-served caseload (i.e. waitlist), this field can be used to provide a detailed description of the caseload requirements.</p>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
