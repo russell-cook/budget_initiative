@@ -16,7 +16,7 @@
           <tbody>
             <% @initiatives.each do |initiative| %>
               <tr>
-                <td><%= initiative.title %></td>
+                <td><%= initiative.user.email %></td>
                 <td><%= initiative.title %></td>
                 <td><%= initiative.lead_agency %></td>
                 <td><%= initiative.sec_agency_1 %></td>
