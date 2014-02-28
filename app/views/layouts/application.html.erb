@@ -27,6 +27,10 @@
           <%= render 'initiatives/nav_bar' %>
         <%- end %>
 
+        <%- if admin_signed_in? %>
+          <%= render 'admin_initiatives/nav_bar' %>
+        <%- end %>
+
     <div class="row">
       <div class="large-12 columns">
 

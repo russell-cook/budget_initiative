@@ -1,9 +1,10 @@
 BudgetInitiative::Application.routes.draw do
+  devise_for :admins
   devise_for :users
   resources :initiatives do
     resources :shares
   end
-  
+  resources :admin_initiatives
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -14,7 +15,7 @@ BudgetInitiative::Application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
     # get 'initiatives/:id/share' => 'initiatives#share'
-
+    # get 'admin_initiatives' => 'admin_initiative#index'
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
