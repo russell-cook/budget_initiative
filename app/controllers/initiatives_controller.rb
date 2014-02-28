@@ -2,7 +2,7 @@ class InitiativesController < ApplicationController
   require 'prawn'
 
   before_action :set_initiative, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user! #unless admin_signed_in?
+  before_filter :authenticate_user!
 
   rescue_from ActiveRecord::RecordNotFound do
     flash[:notice] = 'The Initiative you are trying to view does not exist.'
