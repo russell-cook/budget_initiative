@@ -3,8 +3,8 @@ class PagesController < ApplicationController
 	def form
 		render
 	end
-	
-	http_basic_authenticate_with :name=> "budget", :password=> "initiative"
+
+	# http_basic_authenticate_with :name=> "budget", :password=> "initiative"
 
 	def list
 		render
