@@ -14,7 +14,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title>Nevada Budget Division - Major Budget Initiative Data-Entry Template <%= content_for?(:title) ? yield(:title) : "" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -24,11 +24,11 @@
 
   <body>
         <%- if user_signed_in? %>
-          <%= render 'initiatives/nav_bar' %>
+          <%= render 'devise/shared/user_nav_bar' %>
         <%- end %>
 
         <%- if admin_signed_in? %>
-          <%= render 'admin_initiatives/nav_bar' %>
+          <%= render 'admins/shared/admin_nav_bar' %>
         <%- end %>
 
     <div class="row">
