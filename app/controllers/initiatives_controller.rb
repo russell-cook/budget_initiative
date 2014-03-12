@@ -40,7 +40,7 @@ class InitiativesController < ApplicationController
         pdf.text "Nevada Budget Division"
         pdf.text "Major Budget Initiative Template"
         pdf.font_size p
-        pdf.text "Report Date: " + DateTime.current.to_s
+        pdf.text "Report Date: " + Time.now.strftime("%m-%e-%Y, %I:%M %p")
         pdf.move_down section_spacer
         pdf.font_size title
         pdf.text "Initiative Title: <b>" + init.title + "</b>", :align => :center, :inline_format => true
