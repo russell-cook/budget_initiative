@@ -23,110 +23,124 @@ class InitiativesController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
+        h1 = 18
+        h2 = 14
+        h3 = 12
+        title = 20
+        p = 10
+        section_spacer = 24
+        subsection_spacer = 18
+        paragraph_spacer = 12
+        small_spacer = 8
+        indent_spacer = 20
         init = Initiative.find(params[:id])
         pdf = Prawn::Document.new
-        pdf.font_size 18
-        pdf.text "Nevada Budget Division", :align => :center
-        pdf.text "Major Budget Initiative Template", :align => :center
-        pdf.move_down 18
-        pdf.font_size 24
-        pdf.text "Initiative Title: " + init.title, :align => :center
-        pdf.move_down 18
-        pdf.font_size 18
-        pdf.text "Lead Agency: " + init.lead_agency
-        pdf.move_down 8
-        pdf.font_size 12
-        pdf.text "Secondary Agency 1: " + init.sec_agency_1
-        pdf.move_down 8
-        pdf.text "Secondary Agency 2: " + init.sec_agency_2
-        pdf.move_down 18
-        pdf.font_size 24
-        pdf.text "Overview", :align => :center
-        pdf.move_down 24
-        pdf.font_size 18
-        pdf.text "Description"
-        pdf.move_down 12
-        pdf.font_size 12
-        pdf.text init.description, :indent_paragraphs => 30
-        pdf.move_down 24
-        pdf.font_size 18
-        pdf.text "Justification"
-        pdf.move_down 12
-        pdf.font_size 12
-        pdf.text init.justification, :indent_paragraphs => 30
-        pdf.move_down 24
-        pdf.font_size 18
-        pdf.text "Other Alternatives Considered"
-        pdf.move_down 12
-        pdf.font_size 12
-        pdf.text init.alternatives, :indent_paragraphs => 30
-        pdf.move_down 18
-        pdf.font_size 24
-        pdf.text "Funding Details", :align => :center
-        pdf.move_down 24
-        pdf.font_size 18
-        pdf.text "Cost Anaylsis"
-        pdf.move_down 12
-        pdf.font_size 12
-        pdf.text init.cost_analysis, :indent_paragraphs => 30
-        pdf.move_down 18
-        pdf.font_size 24
-        pdf.text "Objectives/Benchmarks Advanced", :align => :center
-        pdf.move_down 18
-        pdf.font_size 18
-        pdf.text "Objective #1: " + init.objective_1
-        pdf.move_down 8
-        pdf.font_size 12
-        pdf.text "Related Benchmark: " + init.benchmark_1a
-        pdf.move_down 8
-        pdf.text "Related Benchmark: " + init.benchmark_1b
-        pdf.move_down 18
-        pdf.font_size 18
-        pdf.text "Objective #2: " + init.objective_2
-        pdf.move_down 8
-        pdf.font_size 12
-        pdf.text "Related Benchmark: " + init.benchmark_2a
-        pdf.move_down 8
-        pdf.text "Related Benchmark: " + init.benchmark_2b
-        pdf.move_down 18
-        pdf.font_size 24
-        pdf.text "Initiative-Level Performance Measures (Proposed)", :align => :center
-        pdf.move_down 18
-        pdf.font_size 18
-        pdf.text "Initiative-Level Performance Measure #1: " + init.init_pm_1
-        pdf.move_down 8
-        pdf.font_size 12
-        pdf.text init.init_pm_1_cost, :indent_paragraphs => 30
-        pdf.move_down 18
-        pdf.font_size 18
-        pdf.text "Initiative-Level Performance Measure #2: " + init.init_pm_2
-        pdf.move_down 8
-        pdf.font_size 12
-        pdf.text init.init_pm_2_cost, :indent_paragraphs => 30
-        pdf.move_down 18
-        pdf.font_size 24
-        pdf.text "Activity-Level Performance Measures (Existing)", :align => :center
-        pdf.move_down 18
-        pdf.font_size 18
-        pdf.text "Activity-Level Performance Measure #1: " + init.agency_pm_1
-        pdf.move_down 18
-        pdf.font_size 18
-        pdf.text "Activity-Level Performance Measure #2: " + init.agency_pm_2
-        pdf.move_down 18
-        pdf.font_size 24
-        pdf.text "Population/Caseload", :align => :center
-        pdf.move_down 24
-        pdf.font_size 18
-        pdf.text "Population"
-        pdf.move_down 12
-        pdf.font_size 12
-        pdf.text init.population, :indent_paragraphs => 30
-        pdf.move_down 24
-        pdf.font_size 18
-        pdf.text "Caseload"
-        pdf.move_down 12
-        pdf.font_size 12
-        pdf.text init.caseload, :indent_paragraphs => 30
+        pdf.image "public/img/nv_state_seal_bw.png", :at => [492, 720], :width => 48, :height => 48
+        pdf.font_size h2
+        pdf.text "Nevada Budget Division"
+        pdf.text "Major Budget Initiative Template"
+        pdf.font_size p
+        pdf.text "Report Date: " + DateTime.current.to_s
+        pdf.move_down section_spacer
+        pdf.font_size title
+        pdf.text "Initiative Title: <b>" + init.title + "</b>", :align => :center, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Lead Agency: </b>" + init.lead_agency, :inline_format => true
+        pdf.move_down small_spacer
+        pdf.font_size h3
+        pdf.text "<b>Secondary Agency 1: </b>" + init.sec_agency_1, :inline_format => true
+        pdf.move_down small_spacer
+        pdf.text "<b>Secondary Agency 2: </b>" + init.sec_agency_2, :inline_format => true
+        pdf.move_down section_spacer
+        pdf.font_size h1
+        pdf.text "<b><u>Overview</u></b>", :align => :center, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Description</b>", :inline_format => true
+        pdf.move_down paragraph_spacer
+        pdf.font_size p
+        pdf.text init.description, :indent_paragraphs => indent_spacer
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Justification</b>", :inline_format => true
+        pdf.move_down paragraph_spacer
+        pdf.font_size p
+        pdf.text init.justification, :indent_paragraphs => indent_spacer
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Other Alternatives Considered</b>", :inline_format => true
+        pdf.move_down paragraph_spacer
+        pdf.font_size p
+        pdf.text init.alternatives, :indent_paragraphs => indent_spacer
+        pdf.move_down section_spacer
+        pdf.font_size h1
+        pdf.text "<b><u>Funding Details</u></b>", :align => :center, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Cost Anaylsis</b>", :inline_format => true
+        pdf.move_down paragraph_spacer
+        pdf.font_size p
+        pdf.text init.cost_analysis, :indent_paragraphs => indent_spacer
+        pdf.move_down subsection_spacer
+        pdf.font_size h1
+        pdf.text "<b><u>Objectives/Benchmarks Advanced</u></b>", :align => :center, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Objective 1: </b>" + init.objective_1, :inline_format => true
+        pdf.move_down small_spacer
+        pdf.font_size h3
+        pdf.text "<b>Related Benchmark: </b>" + init.benchmark_1a, :inline_format => true
+        pdf.move_down small_spacer
+        pdf.text "<b>Related Benchmark: </b>" + init.benchmark_1b, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Objective 2: </b>" + init.objective_2, :inline_format => true
+        pdf.move_down small_spacer
+        pdf.font_size h3
+        pdf.text "<b>Related Benchmark: </b>" + init.benchmark_2a, :inline_format => true
+        pdf.move_down small_spacer
+        pdf.text "<b>Related Benchmark: </b>" + init.benchmark_2b, :inline_format => true
+        pdf.move_down section_spacer
+        pdf.font_size h1
+        pdf.text "<b><u>Initiative-Level Performance Measures (Proposed)</u></b>", :align => :center, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Initiative-Level Performance Measure 1: </b>", :inline_format => true
+        pdf.text init.init_pm_1
+        pdf.move_down small_spacer
+        pdf.font_size p
+        pdf.text init.init_pm_1_cost, :indent_paragraphs => indent_spacer
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Initiative-Level Performance Measure 2: </b>", :inline_format => true
+        pdf.text init.init_pm_2
+        pdf.move_down small_spacer
+        pdf.font_size p
+        pdf.text init.init_pm_2_cost, :indent_paragraphs => indent_spacer
+        pdf.move_down section_spacer
+        pdf.font_size h1
+        pdf.text "<b><u>Activity-Level Performance Measures (Existing)</u></b>", :align => :center, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Activity-Level Performance Measure 1: </b>" + init.agency_pm_1, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.text "<b>Activity-Level Performance Measure 2: </b>" + init.agency_pm_2, :inline_format => true
+        pdf.move_down section_spacer
+        pdf.font_size h1
+        pdf.text "<b><u>Population/Caseload</u></b>", :align => :center, :inline_format => true
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Population</b>", :inline_format => true
+        pdf.move_down paragraph_spacer
+        pdf.font_size p
+        pdf.text init.population, :indent_paragraphs => indent_spacer
+        pdf.move_down subsection_spacer
+        pdf.font_size h2
+        pdf.text "<b>Caseload</b>", :inline_format => true
+        pdf.move_down paragraph_spacer
+        pdf.font_size p
+        pdf.text init.caseload, :indent_paragraphs => indent_spacer
         send_data pdf.render, filename: "Major Budget Initiative_#{init.title}.pdf", type: "application/pdf"
       end
     end
