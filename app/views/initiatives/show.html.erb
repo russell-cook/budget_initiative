@@ -1,6 +1,18 @@
 <p id="notice"><%= notice %></p> 
 
 <div class="row">
+  <div class="large-12 columns">
+    <center>
+    <div class="button small secondary"><%= link_to 'Edit', edit_initiative_path(@initiative) %></div>
+    <div class="button small secondary"><%= link_to 'Download PDF', initiative_path(@initiative, format: :pdf) %></div>
+    <div class="button small secondary"><%= link_to 'Back to My Budget Initiatives', initiatives_path %></div>
+  </center>
+  </div>
+</div>
+
+<br>
+
+<div class="row">
   <div class="large-3 columns" style="text-align:right;">
     <h2 class="subheader">Title: </h2>
   </div>
@@ -234,7 +246,7 @@
   </div>
 </div>
 
-<div class="row">
+<!-- <div class="row">
   <div class="large-3 columns" style="text-align:right;">
   <p><strong>Who Is Impacted:</strong></p>
   </div>
@@ -243,7 +255,7 @@
   </div>
 </div>
 
-
+ -->
 
 
 
@@ -252,6 +264,7 @@
   <div class="large-12 columns">
     <center>
     <div class="button small secondary"><%= link_to 'Edit', edit_initiative_path(@initiative) %></div>
+    <div class="button small secondary"><%= link_to 'Download PDF', initiative_path(@initiative, format: :pdf) %></div>
     <div class="button small secondary"><%= link_to 'Back to My Budget Initiatives', initiatives_path %></div>
   </center>
   </div>

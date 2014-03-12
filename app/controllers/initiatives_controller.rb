@@ -20,6 +20,116 @@ class InitiativesController < ApplicationController
   # GET /initiatives/1.json
   def show
     authorize_initiative
+    respond_to do |format|
+      format.html
+      format.pdf do
+        init = Initiative.find(params[:id])
+        pdf = Prawn::Document.new
+        pdf.font_size 18
+        pdf.text "Nevada Budget Division", :align => :center
+        pdf.text "Major Budget Initiative Template", :align => :center
+        pdf.move_down 18
+        pdf.font_size 24
+        pdf.text "Initiative Title: " + init.title, :align => :center
+        pdf.move_down 18
+        pdf.font_size 18
+        pdf.text "Lead Agency: " + init.lead_agency
+        pdf.move_down 8
+        pdf.font_size 12
+        pdf.text "Secondary Agency 1: " + init.sec_agency_1
+        pdf.move_down 8
+        pdf.text "Secondary Agency 2: " + init.sec_agency_2
+        pdf.move_down 18
+        pdf.font_size 24
+        pdf.text "Overview", :align => :center
+        pdf.move_down 24
+        pdf.font_size 18
+        pdf.text "Description"
+        pdf.move_down 12
+        pdf.font_size 12
+        pdf.text init.description, :indent_paragraphs => 30
+        pdf.move_down 24
+        pdf.font_size 18
+        pdf.text "Justification"
+        pdf.move_down 12
+        pdf.font_size 12
+        pdf.text init.justification, :indent_paragraphs => 30
+        pdf.move_down 24
+        pdf.font_size 18
+        pdf.text "Other Alternatives Considered"
+        pdf.move_down 12
+        pdf.font_size 12
+        pdf.text init.alternatives, :indent_paragraphs => 30
+        pdf.move_down 18
+        pdf.font_size 24
+        pdf.text "Funding Details", :align => :center
+        pdf.move_down 24
+        pdf.font_size 18
+        pdf.text "Cost Anaylsis"
+        pdf.move_down 12
+        pdf.font_size 12
+        pdf.text init.cost_analysis, :indent_paragraphs => 30
+        pdf.move_down 18
+        pdf.font_size 24
+        pdf.text "Objectives/Benchmarks Advanced", :align => :center
+        pdf.move_down 18
+        pdf.font_size 18
+        pdf.text "Objective #1: " + init.objective_1
+        pdf.move_down 8
+        pdf.font_size 12
+        pdf.text "Related Benchmark: " + init.benchmark_1a
+        pdf.move_down 8
+        pdf.text "Related Benchmark: " + init.benchmark_1b
+        pdf.move_down 18
+        pdf.font_size 18
+        pdf.text "Objective #2: " + init.objective_2
+        pdf.move_down 8
+        pdf.font_size 12
+        pdf.text "Related Benchmark: " + init.benchmark_2a
+        pdf.move_down 8
+        pdf.text "Related Benchmark: " + init.benchmark_2b
+        pdf.move_down 18
+        pdf.font_size 24
+        pdf.text "Initiative-Level Performance Measures (Proposed)", :align => :center
+        pdf.move_down 18
+        pdf.font_size 18
+        pdf.text "Initiative-Level Performance Measure #1: " + init.init_pm_1
+        pdf.move_down 8
+        pdf.font_size 12
+        pdf.text init.init_pm_1_cost, :indent_paragraphs => 30
+        pdf.move_down 18
+        pdf.font_size 18
+        pdf.text "Initiative-Level Performance Measure #2: " + init.init_pm_2
+        pdf.move_down 8
+        pdf.font_size 12
+        pdf.text init.init_pm_2_cost, :indent_paragraphs => 30
+        pdf.move_down 18
+        pdf.font_size 24
+        pdf.text "Activity-Level Performance Measures (Existing)", :align => :center
+        pdf.move_down 18
+        pdf.font_size 18
+        pdf.text "Activity-Level Performance Measure #1: " + init.agency_pm_1
+        pdf.move_down 18
+        pdf.font_size 18
+        pdf.text "Activity-Level Performance Measure #2: " + init.agency_pm_2
+        pdf.move_down 18
+        pdf.font_size 24
+        pdf.text "Population/Caseload", :align => :center
+        pdf.move_down 24
+        pdf.font_size 18
+        pdf.text "Population"
+        pdf.move_down 12
+        pdf.font_size 12
+        pdf.text init.population, :indent_paragraphs => 30
+        pdf.move_down 24
+        pdf.font_size 18
+        pdf.text "Caseload"
+        pdf.move_down 12
+        pdf.font_size 12
+        pdf.text init.caseload, :indent_paragraphs => 30
+        send_data pdf.render, filename: "Major Budget Initiative_#{init.title}.pdf", type: "application/pdf"
+      end
+    end
     # pdf = Prawn::Document.new
     # pdf.text init.title
     # send_data pdf.render, filename: "test.pdf", type: "application/pdf"

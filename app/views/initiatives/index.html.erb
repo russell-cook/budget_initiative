@@ -16,6 +16,7 @@
               <th></th>
 <!--               <th></th>
  -->              <th></th>
+               <th></th>
             </tr>
           </thead>
 
@@ -23,14 +24,11 @@
             <% @initiatives.each do |initiative| %>
               <tr>
                 <td><%= initiative.title %></td>
-<!--                 <td><%= initiative.description %></td>
-                <td><%= initiative.justification %></td>
-                <td><%= initiative.alternatives %></td>
- -->                <td><%= initiative.lead_agency %></td>
+                <td><%= initiative.lead_agency %></td>
                 <td><%= initiative.sec_agency_1 %></td>
                 <td><%= initiative.sec_agency_2 %></td>
-<!--                 <td><%= initiative.cost_analysis %></td>
- -->                <td><%= link_to 'View', initiative %></td>
+                <td><%= link_to 'Download PDF', initiative_path(initiative, format: :pdf) %></td>
+                <td><%= link_to 'View', initiative %></td>
                 <td><%= link_to 'Edit', edit_initiative_path(initiative) %></td>
 <!--                 <td><%= link_to 'Share', initiative_shares_path(initiative) %></td>
  -->                <td><%= link_to 'Delete', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
