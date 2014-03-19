@@ -1,5 +1,7 @@
         <center><h2>My Budget Initiatives</h2></center>
-<p id="notice"><%= notice %></p>
+<center><p id="notice"><%= notice %></p></center>
+
+  <div data-reveal-id="instructionsModal"><h5><a href="#" class="button tiny secondary">?</a> Instructions</h5></div>
 
         <table width="100%">
           <thead>
@@ -31,7 +33,7 @@
                 <td><%= link_to 'View', initiative %></td>
                 <td><%= link_to 'Edit', edit_initiative_path(initiative) %></td>
 <!--                 <td><%= link_to 'Share', initiative_shares_path(initiative) %></td>
- -->                <td><%= link_to 'Delete', initiative, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ -->                <td><%= link_to 'Delete', initiative, method: :delete, data: { confirm: 'Are you sure you want to delete this Budget Initiative? You will not be able to recover this data.' } %></td>
               </tr>
             <% end %>
           </tbody>
@@ -40,4 +42,13 @@
         <br>
 
         <div class="button secondary small"><%= link_to 'Create New Initiative >>', new_initiative_path %></div>
+
+<div id="instructionsModal" class="reveal-modal medium">
+  <h2>Instructions</h2>
+  <p>To create a new Major Budget Initiative click the “<strong>Create New Initiative >></strong>” button, then fill out the fields in the template. You can save your entries at any time by clicking the ‘Save’ button, and if you need to edit the content of an existing Initiative you can do so using the ‘Edit’ link to the right of each Initiative below.</p>
+  <p>For security purposes the site limits access to only those Initiatives that a user has created, however if you need to share this material you can download a PDF of your Initiative at any time using the “Download PDF” link.</p>
+  <p><strong>PLEASE NOTE:</strong> The template will provide a downloadable PDF document, but depending on your browser's configuration you may not be prompted to specify a location for the file. Most browsers will download the PDF to your 'Downloads' folder by default.</p>
+  <p>For reference we have also provided a link to the “Major Budget Initiative Demo” website in the toolbar at the top of the screen, which was presented to the Executive Cabinet at the January 8, 2014 meeting. This section of the site is not intended for data-entry, however it contains examples of proposed Major Budget Initiatives, the most complete of which is currently the “Lake’s Crossing” Initiative.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 

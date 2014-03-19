@@ -1,6 +1,11 @@
 <%= render "devise/shared/container_top" %>
 	<h4>Sign In</h4>
 
+	<% flash.each do |name, msg| %>
+	    <%= content_tag :section, msg, :id => "flash_#{name}", :class => "error_explanation" %>
+	<% end %>
+	<br />
+
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 		  <div><%= f.label :email %><br />
 		  <%= f.email_field :email, :autofocus => true %></div>
