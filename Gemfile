@@ -18,6 +18,9 @@ gem 'jbuilder', '1.0.2'
 
 gem 'jquery-turbolinks', '2.0.2'
 
+# lock prockets version
+gem 'sprockets', '2.11.0'
+
 # Install Foundation
 gem 'compass-rails', '1.1.3'
 gem 'zurb-foundation', '= 4.3.2'
