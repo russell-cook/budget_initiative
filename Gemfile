@@ -22,8 +22,8 @@ gem 'compass-rails', '1.1.3'
 gem 'zurb-foundation', '= 4.3.2'
 
 # Install Devise and simple_form
-gem 'devise', '3.2.4'
-# gem 'devise', '3.2.2'
+# gem 'devise', '3.2.4'
+gem 'devise', '3.2.2'
 gem 'simple_form', '3.0.1'
 
 # Install Prawn PDF
