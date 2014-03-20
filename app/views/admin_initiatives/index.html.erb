@@ -1,29 +1,47 @@
-        <center><h2>List All Budget Initiatives</h2></center>
 <p id="notice"><%= notice %></p>
 
-        <table width="100%">
-          <thead>
-            <tr>
-              <th>User</th>
-              <th>Title</th>
-              <th>Lead agency</th>
-              <th>Secondary Agency 1</th>
-              <th>Secondary Agency 2</th>
-              <th></th>
-            </tr>
-          </thead>
+<center><h2>List All Budget Initiatives</h2></center>
+<table width="100%">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Title</th>
+      <th>Lead agency</th>
+      <th>Secondary Agency 1</th>
+      <th>Secondary Agency 2</th>
+      <th></th>
+    </tr>
+  </thead>
 
-          <tbody>
-            <% @initiatives.each do |initiative| %>
-              <tr>
-                <td><%= initiative.user.email %></td>
-                <td><%= initiative.title %></td>
-                <td><%= initiative.lead_agency %></td>
-                <td><%= initiative.sec_agency_1 %></td>
-                <td><%= initiative.sec_agency_2 %></td>
-                <td><%= link_to 'View', admin_initiative_path(:id => initiative.id) %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+  <tbody>
+    <% @initiatives.each do |initiative| %>
+      <tr>
+        <td><%= initiative.user.email %></td>
+        <td><%= initiative.title %></td>
+        <td><%= initiative.lead_agency %></td>
+        <td><%= initiative.sec_agency_1 %></td>
+        <td><%= initiative.sec_agency_2 %></td>
+        <td><%= link_to 'View', admin_initiative_path(:id => initiative.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<center><h2>List All Users</h2></center>
+<table width="100%">
+  <thead>
+    <tr>
+      <th>User</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 

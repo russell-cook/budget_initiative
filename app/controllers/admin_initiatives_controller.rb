@@ -5,6 +5,7 @@ class AdminInitiativesController < ApplicationController
 
   def index
     @initiatives = Initiative.all
+    @users = User.all
     # @shared_initiatives = Initiative.share.where(email: current_user.email)
   end
 

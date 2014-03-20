@@ -145,9 +145,6 @@ class InitiativesController < ApplicationController
         send_data pdf.render, filename: "Major Budget Initiative_#{init.title}.pdf", type: "application/pdf"
       end
     end
-    # pdf = Prawn::Document.new
-    # pdf.text init.title
-    # send_data pdf.render, filename: "test.pdf", type: "application/pdf"
   end
 
   # GET /initiatives/new
