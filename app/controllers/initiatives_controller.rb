@@ -171,17 +171,19 @@ class InitiativesController < ApplicationController
           pdf.font_size p
           pdf.text init.caseload, :indent_paragraphs => indent_spacer
         end
-        pdf.font_size 8
-        pdf.repeat(:all, :dynamic => true) do
-          pdf.draw_text "Report Date: #{(t.localtime - 8.hours).strftime("%m-%e-%Y, %I:%M %p")}", :at => [0,0]
+        pdf.canvas do
+          pdf.font_size 8
+          pdf.repeat(:all, :dynamic => true) do
+            pdf.draw_text "Report Date: #{(t.localtime - 7.hours).strftime("%m-%e-%Y, %I:%M %p")}", :at => [0 , pdf.bounds.bottom - 18]
+          end
+          string = "Page <page> of <total>"
+          # Green page numbers 1 to 7
+          options = { :at => [pdf.bounds.right - 186, 24],
+            :width => 150,
+            :align => :right,
+            :start_count_at => 1}
+          pdf.number_pages string, options
         end
-        string = "Page <page> of <total>"
-        # Green page numbers 1 to 7
-        options = { :at => [pdf.bounds.right - 150, 0],
-          :width => 150,
-          :align => :right,
-          :start_count_at => 1}
-        pdf.number_pages string, options
         send_data pdf.render, filename: "Major Budget Initiative_#{init.title}.pdf", type: "application/pdf"
       end
     end
