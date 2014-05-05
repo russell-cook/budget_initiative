@@ -90,7 +90,7 @@ class InitiativesController < ApplicationController
           pdf.text "<b><u>Funding Details</u></b>", :align => :center, :inline_format => true
           pdf.move_down subsection_spacer
           pdf.font_size h2
-          pdf.text "<b>Cost Anaylsis</b>", :inline_format => true
+          pdf.text "<b>Cost Analysis</b>", :inline_format => true
           pdf.move_down paragraph_spacer
           pdf.font_size p
           pdf.text init.cost_analysis, :indent_paragraphs => indent_spacer
